@@ -2,10 +2,10 @@ package example;
 
 /**
  * 
- * @Project Snakee
- * @Description Fyrsta viðmótið
+ * @Project Snake
+ * @Description The first interface
  * @Author Sigurður Sigurðardóttir
- * @version Ekki viss
+ * @version Not sure
  */ 
 
 public interface movable

@@ -19,7 +19,7 @@ public class GameUtil
 			i = ImageIO.read(u);
 		} catch (Exception e)
 		{
-			System.err.println("VILLA : FINN EKKI TILTEKNA MYNDIN !\n");
+			System.err.println("ERROR : Specific Image not Found!\n");
 			e.printStackTrace();
 		}
 

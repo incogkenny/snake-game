@@ -16,7 +16,8 @@ public class GameUtil
 		BufferedImage i = null;
 		try
 		{
-			i = ImageIO.read(u);
+            assert u != null;
+            i = ImageIO.read(u);
 		} catch (Exception e)
 		{
 			System.err.println("ERROR : Specific Image not Found!\n");

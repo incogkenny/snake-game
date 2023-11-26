@@ -6,6 +6,7 @@ import java.awt.event.KeyListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.image.BufferedImage;
+import java.io.Serial;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -14,15 +15,16 @@ import javax.swing.JPanel;
 
 /**
  * 
- * @Project Snake
- * @Description Load the game and refresh it constantly
- * @Author Sigurður Sigurðardóttir
+ *
+ * @code Load the game and refresh it constantly
+ * @author Sigurður Sigurðardóttir
  * @version Not sure
  */ 
 
 
 public class MyFrame extends JPanel implements KeyListener
 {
+	@Serial
 	private static final long serialVersionUID = -3149926831770554380L;
 
 	public JFrame jFrame = new JFrame();

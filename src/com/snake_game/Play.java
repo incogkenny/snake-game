@@ -5,18 +5,20 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.KeyEvent;
+import java.io.Serial;
 
 /**
  * 
- * @Project Snake
- * @Description Play the game
- * @Author Sigurður Sigurðardóttir
+ *
+ * @code Play the game
+ * @author Sigurður Sigurðardóttir
  * @version Not Sure
  */ 
 
 public class Play extends MyFrame
 {
 
+	@Serial
 	private static final long serialVersionUID = -3641221053272056036L;
 
 	public MySnake mySnake = new MySnake(100, 100);// x , y

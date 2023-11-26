@@ -12,11 +12,11 @@ This document is intended to guide contributors on how to unify the style of the
 
 - **'dev'**: Used for daily development and maintenance.
 
-- **'feature/title'**: Used to develop new features. These branches is created from the 'develop' branch.
+- **'feature/title'**: Used to develop new features. These branches are created from the 'develop' branch.
 
-- **'bugfix/title'**: Used to fix bugs. These branches is created from the 'develop' branch.
+- **'bugfix/title'**: Used to fix bugs. These branches are created from the 'develop' branch.
 
-- **'release'**: Used for release versions. These branches is created from the 'develop' branch and merge into 'main' branch.
+- **'release'**: Used for release versions. These branches are created from the 'develop' branch and merge into 'main' branch.
 
 **Rules**
 - Use '-' to replace spaces.

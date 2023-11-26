@@ -1,4 +1,4 @@
-package example;
+package com.snake_game;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -67,7 +67,7 @@ public class Play extends MyFrame
 	public static void main(String[] args)
 	{
 		new Play().loadFrame();
-		MusicPlayer.getMusicPlay("src/example/frogger.mp3");
+		MusicPlayer.getMusicPlay("src/com/snake_game/frogger.mp3");
 
 	}
 /*	

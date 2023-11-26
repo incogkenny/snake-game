@@ -1,4 +1,4 @@
-package example;
+package com.snake_game;
 import java.awt.*;
 
 

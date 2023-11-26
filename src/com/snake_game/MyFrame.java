@@ -1,4 +1,4 @@
-package example;
+package com.snake_game;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -29,7 +29,7 @@ public class MyFrame extends JPanel implements KeyListener
 
 	public MyFrame()
 	{
-		jFrame.setIconImage(GameUtil.getImage("example/images/snake-logo.png"));
+		jFrame.setIconImage(GameUtil.getImage("com/snake_game/images/snake-logo.png"));
 	}
 
 	public void loadFrame()

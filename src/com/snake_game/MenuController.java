@@ -1,18 +1,12 @@
 package com.snake_game;
 
-import java.net.URL;
-import java.util.ResourceBundle;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
 public class MenuController {
 
-    @FXML
-    private ResourceBundle resources;
-
-    @FXML
-    private URL location;
 
     @FXML
     private Button exitButton;
@@ -28,7 +22,8 @@ public class MenuController {
 
     @FXML
     void exitGame(ActionEvent event) {
-
+        Platform.exit();
+        System.exit(0);
     }
 
     @FXML

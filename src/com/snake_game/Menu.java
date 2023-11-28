@@ -5,7 +5,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import java.io.IOException;
 
 public class Menu extends Application {
 
@@ -14,11 +13,23 @@ public class Menu extends Application {
     }
 
     @Override
-    public void start(Stage primaryStage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Menu.class.getResource("menu-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        primaryStage.setTitle("Snake");
-        primaryStage.setScene(scene);
-        primaryStage.show();
+    public void start(Stage stage) throws Exception {
+        FXMLLoader menuLoader = new FXMLLoader(getClass().getResource("menu-view.fxml"));
+        Scene scene1 = new Scene(menuLoader.load());
+
+        FXMLLoader settingsLoader = new FXMLLoader(getClass().getResource("settings-view.fxml"));
+        Scene scene2 = new Scene(settingsLoader.load());
+
+        MenuController menuController = menuLoader.getController();
+        menuController.setSettingsScene(scene2);
+
+        SettingsController settingsController = settingsLoader.getController();
+        settingsController.setMenuScene(scene1);
+
+        stage.setTitle("Snake");
+        stage.setScene(scene1);
+        stage.setResizable(false);
+
+        stage.show();
     }
 }

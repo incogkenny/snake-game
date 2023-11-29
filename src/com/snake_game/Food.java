@@ -3,7 +3,7 @@ package com.snake_game;
 import java.awt.Graphics;
 import java.util.Random;
 
-public class Food extends SnakeObject
+public class Food extends MyFrame.SnakeObject
 {
 	public Food()	{
 		this.l = true;

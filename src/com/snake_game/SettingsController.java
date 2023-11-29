@@ -1,16 +1,15 @@
 package com.snake_game;
 
-import java.io.FileInputStream;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
@@ -18,8 +17,6 @@ public class SettingsController {
 
     @FXML
     private ImageView background;
-    @FXML
-    private Button backButton;
 
     @FXML
     private TextField nameForm;
@@ -42,13 +39,13 @@ public class SettingsController {
     }
 
     @FXML
-    void changeBackgroundLeft(ActionEvent event) {
+    void changeBackgroundLeft() {
         imageCounter --;
         background.setImage(images.get(imageCounter % images.size()));
     }
 
     @FXML
-    void changeBackgroundRight(ActionEvent event) {
+    void changeBackgroundRight() {
         imageCounter ++;
         background.setImage(images.get(imageCounter % images.size()));
     }

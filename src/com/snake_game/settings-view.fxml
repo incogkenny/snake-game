@@ -44,10 +44,10 @@
          </ImageView>
       </center>
       <right>
-         <Button fx:id="rightarrow" mnemonicParsing="false" onAction="#changeBackgroundRight" prefHeight="241.0" prefWidth="34.0" text="--&gt;" BorderPane.alignment="CENTER" />
+         <Button mnemonicParsing="false" onAction="#changeBackgroundRight" prefHeight="241.0" prefWidth="34.0" text="--&gt;" BorderPane.alignment="CENTER" />
       </right>
       <left>
-         <Button fx:id="leftarrow" mnemonicParsing="false" onAction="#changeBackgroundLeft" prefHeight="281.0" prefWidth="34.0" text="&lt;--" BorderPane.alignment="CENTER" />
+         <Button mnemonicParsing="false" onAction="#changeBackgroundLeft" prefHeight="281.0" prefWidth="34.0" text="&lt;--" BorderPane.alignment="CENTER" />
       </left>
       <top>
          <Label text="Change in-game Background:" BorderPane.alignment="CENTER">
@@ -67,7 +67,7 @@
          <Font size="20.0" />
       </font>
    </Label>
-   <Button fx:id="backButton" layoutX="591.0" layoutY="91.0" mnemonicParsing="false" onAction="#switchToMenu" text="&lt;-- Back to Menu">
+   <Button layoutX="591.0" layoutY="91.0" mnemonicParsing="false" onAction="#switchToMenu" text="&lt;-- Back to Menu">
       <font>
          <Font size="27.0" />
       </font>

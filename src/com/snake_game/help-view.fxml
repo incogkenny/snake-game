@@ -13,9 +13,7 @@
 <AnchorPane prefHeight="560.0" prefWidth="870.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.snake_game.HelpController">
    <children>
       <ImageView fitHeight="560.0" fitWidth="870.0" pickOnBounds="true">
-         <image>
-            <Image url="@images/menu-background.jpg" />
-         </image>
+         <Image url="@images/menu-background.jpg"/>
       </ImageView>
       <Label layoutX="58.0" layoutY="25.0" prefHeight="95.0" prefWidth="447.0" text="How to Play">
          <font>
@@ -38,7 +36,7 @@
             </RadialGradient>
          </textFill>
       </Label>
-      <Button fx:id="backButton" layoutX="591.0" layoutY="91.0" mnemonicParsing="false" onAction="#switchToMenu" text="&lt;-- Back to Menu">
+      <Button layoutX="591.0" layoutY="91.0" mnemonicParsing="false" onAction="#switchToMenu" text="&lt;-- Back to Menu">
          <font>
             <Font size="27.0" />
          </font>

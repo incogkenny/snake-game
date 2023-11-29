@@ -37,7 +37,7 @@ public class MenuController {
 
 
     @FXML
-    void exitGame(ActionEvent event) {
+    void exitGame() {
         Platform.exit();
         System.exit(0);
     }
@@ -55,7 +55,7 @@ public class MenuController {
     }
 
     @FXML
-    void playGame(ActionEvent event) {
+    void playGame() {
         Play.main(null);
         Platform.exit();
     }

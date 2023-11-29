@@ -11,52 +11,53 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="560.0" prefWidth="870.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.snake_game.MenuController">
-   <children>
-      <ImageView fitHeight="560.0" fitWidth="870.0">
-         <image>
-            <Image url="@images/menu-background.jpg" />
-         </image>
-      </ImageView>
-      <Button fx:id="playButton" layoutX="66.0" layoutY="176.0" mnemonicParsing="false" onAction="#playGame" prefHeight="55.0" prefWidth="253.0" text="Play Game">
-         <font>
-            <Font size="21.0" />
-         </font>
-      </Button>
-      <Button fx:id="settingsButton" layoutX="66.0" layoutY="330.0" mnemonicParsing="false" onAction="#openSettings" prefHeight="55.0" prefWidth="253.0" text="Settings">
-         <font>
-            <Font size="21.0" />
-         </font>
-      </Button>
-      <Button fx:id="howToPlayButton" layoutX="66.0" layoutY="253.0" mnemonicParsing="false" onAction="#howToPlay" prefHeight="55.0" prefWidth="253.0" text="How to Play">
-         <font>
-            <Font size="21.0" />
-         </font>
-      </Button>
-      <Button fx:id="exitButton" layoutX="66.0" layoutY="406.0" mnemonicParsing="false" onAction="#exitGame" prefHeight="55.0" prefWidth="253.0" text="Exit">
-         <font>
-            <Font size="21.0" />
-         </font>
-      </Button>
-      <Label layoutX="66.0" layoutY="35.0" prefHeight="95.0" prefWidth="446.0" text="Snake Game" textAlignment="CENTER">
-         <font>
-            <Font name="Candara Light" size="79.0" />
-         </font>
-         <textFill>
-            <RadialGradient centerX="0.47790055248618785" centerY="0.25355450236966826" radius="0.5">
-               <stops>
-                  <Stop>
-                     <color>
-                        <Color red="0.6559149622917175" green="0.9605262875556946" blue="0.3513036072254181" />
-                     </color>
-                  </Stop>
-                  <Stop offset="1.0">
-                     <color>
-                        <Color red="1.0" green="1.0" blue="1.0" />
-                     </color>
-                  </Stop>
-               </stops>
-            </RadialGradient>
-         </textFill>
-      </Label>
-   </children>
+   <ImageView fitHeight="560.0" fitWidth="870.0">
+      <Image url="@images/menu-background.jpg" />
+   </ImageView>
+   <Button fx:id="playButton" layoutX="66.0" layoutY="176.0" mnemonicParsing="false" onAction="#playGame" prefHeight="55.0" prefWidth="253.0" text="Play Game">
+      <font>
+         <Font size="21.0" />
+      </font>
+   </Button>
+   <Button fx:id="settingsButton" layoutX="66.0" layoutY="330.0" mnemonicParsing="false" onAction="#openSettings" prefHeight="55.0" prefWidth="253.0" text="Settings">
+      <font>
+         <Font size="21.0" />
+      </font>
+   </Button>
+   <Button fx:id="howToPlayButton" layoutX="66.0" layoutY="253.0" mnemonicParsing="false" onAction="#howToPlay" prefHeight="55.0" prefWidth="253.0" text="How to Play">
+      <font>
+         <Font size="21.0" />
+      </font>
+   </Button>
+   <Button fx:id="exitButton" layoutX="66.0" layoutY="406.0" mnemonicParsing="false" onAction="#exitGame" prefHeight="55.0" prefWidth="253.0" text="Exit">
+      <font>
+         <Font size="21.0" />
+      </font>
+   </Button>
+   <Label layoutX="66.0" layoutY="35.0" prefHeight="95.0" prefWidth="446.0" text="Snake Game" textAlignment="CENTER">
+      <font>
+         <Font name="Candara Light" size="79.0" />
+      </font>
+      <textFill>
+         <RadialGradient centerX="0.47790055248618785" centerY="0.25355450236966826" radius="0.5">
+            <stops>
+               <Stop>
+                  <color>
+                     <Color red="0.6559149622917175" green="0.9605262875556946" blue="0.3513036072254181" />
+                  </color>
+               </Stop>
+               <Stop offset="1.0">
+                  <color>
+                     <Color red="1.0" green="1.0" blue="1.0" />
+                  </color>
+               </Stop>
+            </stops>
+         </RadialGradient>
+      </textFill>
+   </Label>
+   <Label layoutX="66.0" layoutY="147.0" text="*Don't Forget to add your name in Settings before you play!!" textFill="#e8150e">
+      <font>
+         <Font size="16.0" />
+      </font>
+   </Label>
 </AnchorPane>

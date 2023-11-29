@@ -32,6 +32,7 @@ public class ImageUtil
 		images.put("15", GameUtil.getImage("com/snake_game/images/food-strawberry.png"));
 		images.put("16", GameUtil.getImage("com/snake_game/images/food-watermelon.png"));
 		images.put("UI-background", GameUtil.getImage("com/snake_game/images/UI-background.png"));
+		images.put("UI-background2", GameUtil.getImage("com/snake_game/images/UI-background2.png"));
 		images.put("game-scene-01", GameUtil.getImage("com/snake_game/images/game-scene-01.jpg"));
 	}
 }

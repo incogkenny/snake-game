@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
+
 public class MenuController {
 
 
@@ -34,8 +35,9 @@ public class MenuController {
         howToPlayScene = scene;
     }
 
+
     @FXML
-    void exitGame(ActionEvent event) {
+    void exitGame() {
         Platform.exit();
         System.exit(0);
     }
@@ -53,8 +55,9 @@ public class MenuController {
     }
 
     @FXML
-    void playGame(ActionEvent event) {
-
+    void playGame() {
+        Play.main(null);
+        Platform.exit();
     }
 
     @FXML

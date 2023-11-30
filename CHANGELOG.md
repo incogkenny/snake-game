@@ -1,5 +1,24 @@
 ## Changelog
 
+### 30/11/2023
+- Extracted MySnake class into its own file
+- 
+
+### 29/11/2023
+- Finalised Main Menu - Merged branch into dev
+  - Added Controllers and fxml files for each scene (Menu, Settings, Help)
+  - Play button starts the game and closes menu
+  - Background for each scene
+
+- Extracted SnakeObject class into its own file
+
+### 28/11/2023
+- Created Menu Controller and fxml file
+  - Added exit and settings buttons
+
+### 27/11/2023
+- Created new branch (feature/menu) to work of Main menu
+
 ### 24/11/2023
 - Removed redundant imports and attributes from Food Class
 - Removed redundant classes Main and Snake

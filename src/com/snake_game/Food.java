@@ -17,7 +17,7 @@ public class Food extends SnakeObject
 		this.y = (int) (Math.random() * (560 - h - 40));
 	}
 
-	public void eaten(MyFrame.MySnake mySnake)	{
+	public void eaten(MySnake mySnake)	{
 
 		if (mySnake.getRectangle().intersects(this.getRectangle()) && l && mySnake.l)		{
 			this.l = false;

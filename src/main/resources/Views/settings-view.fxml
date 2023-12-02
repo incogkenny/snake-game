@@ -14,7 +14,7 @@
 
 <AnchorPane prefHeight="560.0" prefWidth="870.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.snake_game.SettingsController">
    <ImageView fitHeight="560.0" fitWidth="870.0" pickOnBounds="true">
-      <Image url="@images/menu-background.jpg" />
+      <Image url="@../images/menu-background.jpg" />
    </ImageView>
    <Label layoutX="58.0" layoutY="34.0" prefHeight="95.0" prefWidth="338.0" text="Settings">
       <font>
@@ -40,7 +40,7 @@
    <BorderPane layoutX="58.0" layoutY="267.0" prefHeight="265.0" prefWidth="425.0">
       <center>
          <ImageView fx:id="background" fitHeight="247.0" fitWidth="358.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
-            <Image url="@images/UI-background.png" />
+            <Image url="@../images/UI-background.png" />
          </ImageView>
       </center>
       <right>

@@ -12,7 +12,7 @@
 
 <AnchorPane prefHeight="560.0" prefWidth="870.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.snake_game.MenuController">
    <ImageView fitHeight="560.0" fitWidth="870.0">
-      <Image url="@images/menu-background.jpg" />
+      <Image url="@../images/menu-background.jpg" />
    </ImageView>
    <Button fx:id="playButton" layoutX="66.0" layoutY="176.0" mnemonicParsing="false" onAction="#playGame" prefHeight="55.0" prefWidth="253.0" text="Play Game">
       <font>

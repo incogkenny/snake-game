@@ -15,13 +15,13 @@ public class Menu extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         // Loads fxml files into scenes
-        FXMLLoader menuLoader = new FXMLLoader(getClass().getResource("menu-view.fxml"));
+        FXMLLoader menuLoader = new FXMLLoader(getClass().getResource("/Views/menu-view.fxml"));
         Scene scene1 = new Scene(menuLoader.load());
 
-        FXMLLoader settingsLoader = new FXMLLoader(getClass().getResource("settings-view.fxml"));
+        FXMLLoader settingsLoader = new FXMLLoader(getClass().getResource("/Views/settings-view.fxml"));
         Scene scene2 = new Scene(settingsLoader.load());
 
-        FXMLLoader helpLoader = new FXMLLoader(getClass().getResource("help-view.fxml"));
+        FXMLLoader helpLoader = new FXMLLoader(getClass().getResource("/Views/help-view.fxml"));
         Scene scene3 = new Scene(helpLoader.load());
 
         // Scene Controllers get access to other scenes

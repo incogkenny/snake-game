@@ -29,8 +29,8 @@ public class SettingsController {
     public SettingsController() throws FileNotFoundException {
         // Adding game backgrounds to list
 
-        images.add(new Image(new FileInputStream("src/com/snake_game/images/UI-background.png")));
-        images.add(new Image(new FileInputStream("src/com/snake_game/images/UI-background2.png")));
+        images.add(new Image(new FileInputStream("src/main/resources/images/UI-background.png")));
+        images.add(new Image(new FileInputStream("src/main/resources/images/UI-background2.png")));
 
     }
 

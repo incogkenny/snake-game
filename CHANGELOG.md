@@ -1,8 +1,18 @@
 ## Changelog
 
+### 06/12/2023
+- Added module-info.java to project
+- Added Leaderboard view
+- Moved Controller classes to subfolder for organisation
+
+### 02/12/2023
+- Added Maven Framework to project
+  - Moved images to newly added resources folder
+  - Moved Views (fxml) to resources folder
+
 ### 30/11/2023
 - Extracted MySnake class into its own file
-- 
+- Updated ReadMe
 
 ### 29/11/2023
 - Finalised Main Menu - Merged branch into dev

@@ -10,6 +10,9 @@ import javafx.scene.control.TableView;
 import javafx.stage.Stage;
 import java.io.IOException;
 
+/**
+ * Controls Leaderboard view (leaderboard_view.fxml)
+ */
 public class LeaderboardController {
 
     @FXML
@@ -21,6 +24,10 @@ public class LeaderboardController {
     @FXML
     private TableView<?> table;
 
+    /**
+    * Changes scene to Main Menu
+    *
+    */
     @FXML
     void backtoMenu(ActionEvent event) throws IOException {
         FXMLLoader menuLoader = new FXMLLoader(getClass().getResource("/Views/menu-view.fxml"));

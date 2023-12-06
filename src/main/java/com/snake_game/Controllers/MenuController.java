@@ -1,5 +1,6 @@
-package com.snake_game;
+package com.snake_game.Controllers;
 
+import com.snake_game.Play;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

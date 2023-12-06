@@ -8,4 +8,6 @@ module MuiruriJoshua_Source_Code {
 
     exports com.snake_game;
     opens com.snake_game to javafx.fxml, javafx.base;
+    exports com.snake_game.Controllers;
+    opens com.snake_game.Controllers to javafx.base, javafx.fxml;
 }

@@ -1,8 +1,12 @@
 package com.snake_game;
 
+import com.snake_game.Controllers.HelpController;
+import com.snake_game.Controllers.MenuController;
+import com.snake_game.Controllers.SettingsController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 
@@ -36,6 +40,7 @@ public class Menu extends Application {
         helpController.setMenuScene(scene1);
 
         stage.setTitle("Snake");
+        stage.getIcons().add(new Image("snake-logo.png"));
         stage.setScene(scene1);
         stage.setResizable(false);
 

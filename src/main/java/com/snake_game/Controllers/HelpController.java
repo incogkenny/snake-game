@@ -1,4 +1,4 @@
-package com.snake_game;
+package com.snake_game.Controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

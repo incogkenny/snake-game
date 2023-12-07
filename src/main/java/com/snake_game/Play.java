@@ -1,16 +1,14 @@
 package com.snake_game;
 
 import javafx.animation.AnimationTimer;
-import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
-import javafx.scene.text.FontWeight;
-import javafx.scene.image.Image;
-import javafx.stage.Stage;
 import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 
 
 
@@ -23,7 +21,7 @@ import javafx.scene.text.Font;
  * @version Not Sure
  */ 
 
-public class Play extends Application
+public class Play
 {
 
 	//@Serial
@@ -38,18 +36,23 @@ public class Play extends Application
 	public Canvas canvas;
 	private GraphicsContext gc;
 
-	public void start(Stage stage){
+	public Scene getScene() {
+		return scene;
+	}
+
+	public Scene scene;
+
+	public Play(){
 		canvas = new Canvas(870, 560);
 		gc = canvas.getGraphicsContext2D();
 
 		BorderPane root = new BorderPane(canvas);
-		Scene scene = new Scene(root);
-		stage.setScene(scene);
-		stage.setTitle("Snake");
+		scene = new Scene(root);
+		//stage.setScene(scene);
+		//stage.setTitle("Snake");
 
 		scene.setOnKeyPressed(e -> mySnake.keyPressed(e));
-		stage.show();
-		game();
+		//stage.show();
 	}
 
 	public void game()
@@ -94,7 +97,7 @@ public class Play extends Application
 	public static void main(String[] args)
 	{
 		MusicPlayer.getMusicPlay("src/main/resources/sounds/frogger.mp3");
-		launch(args);
+
 
 
 

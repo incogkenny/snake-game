@@ -1,20 +1,23 @@
 package com.snake_game;
 
-import java.awt.*;
+import javafx.geometry.Rectangle2D;
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.image.Image;
+
 
 public abstract class SnakeObject {
     int x;
     int y;
     Image i;
-    int w;
-    int h;
+    double w;
+    double h;
 
     public boolean l;
 
 
-    public abstract void draw(Graphics g);
+    public abstract void draw(GraphicsContext g);
 
-    public Rectangle getRectangle() {
-        return new Rectangle(x, y, w, h);
+    public Rectangle2D getRectangle() {
+        return new Rectangle2D(x, y, w, h);
     }
 }

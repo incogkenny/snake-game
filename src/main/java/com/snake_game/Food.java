@@ -1,6 +1,7 @@
 package com.snake_game;
 
-import java.awt.Graphics;
+import javafx.scene.canvas.GraphicsContext;
+
 import java.util.Random;
 
 public class Food extends SnakeObject
@@ -10,8 +11,8 @@ public class Food extends SnakeObject
 
 		this.i = ImageUtil.images.get(String.valueOf(new Random().nextInt(10)));
 
-		this.w = i.getWidth(null);
-		this.h = i.getHeight(null);
+		this.w = i.getWidth();
+		this.h = i.getHeight();
 
 		this.x = (int) (Math.random() * (870 - w + 10));
 		this.y = (int) (Math.random() * (560 - h - 40));
@@ -26,8 +27,8 @@ public class Food extends SnakeObject
 		}
 	}
 	@Override
-	public void draw(Graphics g)
+	public void draw(GraphicsContext g)
 	{
-		g.drawImage(i, x, y, null);
+		g.drawImage(i, x, y);
 	}
 }

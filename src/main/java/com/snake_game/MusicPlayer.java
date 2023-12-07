@@ -15,26 +15,20 @@ public class MusicPlayer extends Thread
 		this.filename = filename;
 	}
 
-	public void play()
+	@Override
+	public void run()
 	{
-		new Thread()
+		super.run();
+		try
 		{
-			@Override
-			public void run()
-			{
-				super.run();
-				try
-				{
-					//BufferedInputStream buffer = new BufferedInputStream(new FileInputStream(filename));
-					player = new Player(new BufferedInputStream(new FileInputStream(filename)));
-					player.play();
+			//BufferedInputStream buffer = new BufferedInputStream(new FileInputStream(filename));
+			player = new Player(new BufferedInputStream(new FileInputStream(filename)));
+			player.play();
 
-				} catch (Exception e)
-				{
-					System.out.println(e);
-				}
-			}
-		}.start();
+		} catch (Exception e)
+		{
+			System.out.println(e);
+		}
 	}
 
 
@@ -42,6 +36,6 @@ public class MusicPlayer extends Thread
 	public static void getMusicPlay(String filename)
 	{
 		MusicPlayer musicPlayer = new MusicPlayer(filename);
-		musicPlayer.play();
+		musicPlayer.start();
 	}
 }

@@ -25,10 +25,10 @@ public class MyFrame extends JPanel implements KeyListener
 
 	public JFrame jFrame = new JFrame();
 
-	public MyFrame()
-	{
-		jFrame.setIconImage(GameUtil.getImage("snake-logo.png"));
-	}
+//	public MyFrame()
+//	{
+//		jFrame.setIconImage(GameUtil.getImage("snake-logo.png"));
+//	}
 
 	public void loadFrame()
 	{

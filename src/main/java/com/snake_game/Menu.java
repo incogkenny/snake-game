@@ -39,6 +39,7 @@ public class Menu extends Application {
         HelpController helpController = helpLoader.getController();
         helpController.setMenuScene(scene1);
 
+
         stage.setTitle("Snake");
         stage.getIcons().add(new Image("snake-logo.png"));
         stage.setScene(scene1);

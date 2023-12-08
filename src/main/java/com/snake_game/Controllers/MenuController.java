@@ -1,5 +1,6 @@
 package com.snake_game.Controllers;
 
+import com.snake_game.MusicPlayer;
 import com.snake_game.Play;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -28,6 +29,7 @@ public class MenuController {
     private Scene settingsScene;
     private Scene howToPlayScene;
 
+
     // sets
     public void setSettingsScene(Scene scene){
         settingsScene = scene;
@@ -35,7 +37,6 @@ public class MenuController {
     public void setHowToPlayScene(Scene scene) {
         howToPlayScene = scene;
     }
-
 
     @FXML
     void exitGame() {
@@ -56,9 +57,12 @@ public class MenuController {
     }
 
     @FXML
-    void playGame() {
-        Play.main(null);
-        Platform.exit();
+    void playGame(ActionEvent event) {
+        Play play = new Play();
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setScene(play.getScene());
+        play.game();
+        MusicPlayer.getMusicPlay("src/main/resources/sounds/frogger.mp3");
     }
 
     @FXML

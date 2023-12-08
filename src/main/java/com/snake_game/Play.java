@@ -11,97 +11,85 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 
 
-
-
 /**
- * 
- *
- * @code Play the game
  * @author Sigurður Sigurðardóttir
  * @version Not Sure
- */ 
+ * @code Play the game
+ */
 
-public class Play
-{
+public class Play {
 
-	//@Serial
+    //@Serial
 //	private static final long serialVersionUID = -3641221053272056036L;
 
-	public MySnake mySnake = new MySnake(100, 100);// x , y
-	public Food food = new Food();
+    public MySnake mySnake = new MySnake(100, 100);// x , y
+    public Food food = new Food();
 
-	public Image background = ImageUtil.images.get("UI-background");
-	public Image fail = ImageUtil.images.get("game-scene-01");
+    public Image background = ImageUtil.images.get("UI-background");
+    public Image fail = ImageUtil.images.get("game-scene-01");
 
-	public Canvas canvas;
-	private GraphicsContext gc;
+    public Canvas canvas;
+    private GraphicsContext gc;
 
-	public Scene getScene() {
-		return scene;
-	}
+    public Scene getScene() {
+        return scene;
+    }
 
-	public Scene scene;
+    public Scene scene;
 
-	public Play(){
-		canvas = new Canvas(870, 560);
-		gc = canvas.getGraphicsContext2D();
+    public Play() {
+        canvas = new Canvas(870, 560);
+        gc = canvas.getGraphicsContext2D();
 
-		BorderPane root = new BorderPane(canvas);
-		scene = new Scene(root);
-		//stage.setScene(scene);
-		//stage.setTitle("Snake");
+        BorderPane root = new BorderPane(canvas);
+        scene = new Scene(root);
+        //stage.setScene(scene);
+        //stage.setTitle("Snake");
 
-		scene.setOnKeyPressed(e -> mySnake.keyPressed(e));
-		//stage.show();
-	}
+        scene.setOnKeyPressed(e -> mySnake.keyPressed(e));
+        //stage.show();
+    }
 
-	public void game()
-	{
-		new AnimationTimer(){
-			@Override
-			public void handle(long l) {
-				gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
-				gc.drawImage(background, 0, 0);
+    public void game() {
+        new AnimationTimer() {
+            @Override
+            public void handle(long l) {
+                gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
+                gc.drawImage(background, 0, 0);
 
-				// Determine the state of the game.
-				if (mySnake.l)
-				{
-					mySnake.draw(gc);
-					if (food.l)
-					{
-						food.draw(gc);
-						food.eaten(mySnake);
-					} else
-					{
-						food = new Food();
-					}
-				} else
-				{
-					gc.drawImage(fail, 0, 0);
-				}
-				drawScore(gc);
+                // Constantly determines the state of the game.#
+                // First checks if snake is alive
+                if (mySnake.state) {
+                    mySnake.draw(gc);
+                    // Checks if food
+                    if (food.state) {
+                        food.draw(gc);
+                        food.eaten(mySnake);
+                    } else {
+                        food = new Food();
+                    }
+                } else {
+                    gc.drawImage(fail, 0, 0);
+                }
+                drawScore(gc);
 
 
-			}
-			}.start();
+            }
+        }.start();
 
-	}
+    }
 
-	public void drawScore(GraphicsContext g)
-	{
-		g.setFont(Font.font("SansSerif", FontWeight.BOLD, 30));
-		g.setFill(Color.MAGENTA);
-		g.fillText("SCORE : " + mySnake.score, 20, 40);
-	}
+    public void drawScore(GraphicsContext g) {
+        g.setFont(Font.font("SansSerif", FontWeight.BOLD, 30));
+        g.setFill(Color.MAGENTA);
+        g.fillText("SCORE : " + mySnake.score, 20, 40);
+    }
 
-	public static void main(String[] args)
-	{
-		MusicPlayer.getMusicPlay("src/main/resources/sounds/frogger.mp3");
+    public static void main(String[] args) {
+        MusicPlayer.getMusicPlay("src/main/resources/sounds/frogger.mp3");
 
 
-
-
-	}
+    }
 /*	
 	public static void main(String[] args)
 	{

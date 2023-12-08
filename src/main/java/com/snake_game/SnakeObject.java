@@ -8,16 +8,16 @@ import javafx.scene.image.Image;
 public abstract class SnakeObject {
     int x;
     int y;
-    Image i;
-    double w;
-    double h;
+    Image image;
+    double width;
+    double height;
 
-    public boolean l;
+    public boolean state;
 
 
     public abstract void draw(GraphicsContext g);
 
     public Rectangle2D getRectangle() {
-        return new Rectangle2D(x, y, w, h);
+        return new Rectangle2D(x, y, width, height);
     }
 }

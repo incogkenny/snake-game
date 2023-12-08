@@ -24,12 +24,12 @@ public class MySnake extends SnakeObject implements movable {
     boolean up, down, left, right = true;
 
     public MySnake(int x, int y) {
-        this.l = true;
+        this.state = true;
         this.x = x;
         this.y = y;
-        this.i = ImageUtil.images.get("snake-body");
-        this.w = i.getWidth();
-        this.h = i.getHeight();
+        this.image = ImageUtil.images.get("snake-body");
+        this.width = image.getWidth();
+        this.height = image.getHeight();
 
         this.speed_XY = 5;
         this.length = 1;
@@ -37,7 +37,7 @@ public class MySnake extends SnakeObject implements movable {
         /*
          * Attention : ?
          */
-        this.num = w / speed_XY;
+        this.num = width / speed_XY;
         newImgSnakeHead = IMG_SNAKE_HEAD.getImage();
 
     }
@@ -132,12 +132,12 @@ public class MySnake extends SnakeObject implements movable {
 
         move();
     }
-
+/** Checks if the snake has run into (eaten) a part of its body*/
     public void eatBody() {
         for (Point2D point : bodyPoints) {
             for (Point2D point2 : bodyPoints) {
                 if (point.equals(point2) && point != point2) {
-                    this.l = false;
+                    this.state = false;
                 }
             }
         }
@@ -148,15 +148,15 @@ public class MySnake extends SnakeObject implements movable {
 
         for (int i = length; i >= num; i -= num) {
             Point2D point = bodyPoints.get(i);
-            g.drawImage(this.i, point.getX(), point.getY());
+            g.drawImage(this.image, point.getX(), point.getY());
         }
     }
 
     private void outofBounds() {
-        boolean xOut = (x <= 0 || x >= (870 - w));
-        boolean yOut = (y <= 0 || y >= (560 - h));
+        boolean xOut = (x <= 0 || x >= (870 - width));
+        boolean yOut = (y <= 0 || y >= (560 - height));
         if (xOut || yOut) {
-            l = false;
+            state = false;
         }
     }
 }

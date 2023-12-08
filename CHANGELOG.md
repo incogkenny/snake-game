@@ -1,9 +1,13 @@
 ## Changelog
 
+### 07/12/2023
+- Translated Game code from Swing to JavaFX
+- Linked Game back to play button in Main Menu
+
 ### 06/12/2023
 - Added module-info.java to project
 - Added Leaderboard view
-- Moved Controller classes to subfolder for organisation
+- Moved Controller classes to sub-folder for organisation
 
 ### 02/12/2023
 - Added Maven Framework to project

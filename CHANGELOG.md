@@ -1,5 +1,8 @@
 ## Changelog
 
+### 09/12/2023
+- Able to now change Game Background in Settings
+
 ### 07/12/2023
 - Translated Game code from Swing to JavaFX
 - Linked Game back to play button in Main Menu

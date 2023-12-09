@@ -28,13 +28,18 @@ public class Menu extends Application {
         FXMLLoader helpLoader = new FXMLLoader(getClass().getResource("/Views/help-view.fxml"));
         Scene scene3 = new Scene(helpLoader.load());
 
-        // Scene Controllers get access to other scenes
+        // Instantiates Game object
+        Play game = new Play();
+        // Scene Controllers get access to other scenes and the Play() instance
         MenuController menuController = menuLoader.getController();
+        menuController.setPlay(game);
         menuController.setSettingsScene(scene2);
         menuController.setHowToPlayScene(scene3);
 
         SettingsController settingsController = settingsLoader.getController();
+        settingsController.setPlay(game);
         settingsController.setMenuScene(scene1);
+
 
         HelpController helpController = helpLoader.getController();
         helpController.setMenuScene(scene1);

@@ -31,13 +31,13 @@ public class MySnake extends SnakeObject implements movable {
         this.width = image.getWidth();
         this.height = image.getHeight();
 
-        this.speed_XY = 5;
+        this.speed_XY = 4;
         this.length = 1;
 
         /*
          * Attention : ?
          */
-        this.num = width / speed_XY;
+        this.num = width / 5;
         newImgSnakeHead = IMG_SNAKE_HEAD.getImage();
 
     }
@@ -123,6 +123,7 @@ public class MySnake extends SnakeObject implements movable {
         eatBody();
 
         bodyPoints.add(new Point2D(x, y));
+        System.out.println(bodyPoints.size());
 
         if (bodyPoints.size() == (this.length + 1) * num) {
             bodyPoints.remove(0);
@@ -138,6 +139,7 @@ public class MySnake extends SnakeObject implements movable {
             for (Point2D point2 : bodyPoints) {
                 if (point.equals(point2) && point != point2) {
                     this.state = false;
+                    break;
                 }
             }
         }
@@ -146,7 +148,7 @@ public class MySnake extends SnakeObject implements movable {
     public void drawBody(GraphicsContext g) {
         int length = (int) (bodyPoints.size() - 1 - num);
 
-        for (int i = length; i >= num; i -= num) {
+        for (int i = length; i >= num; i -= (int) num) {
             Point2D point = bodyPoints.get(i);
             g.drawImage(this.image, point.getX(), point.getY());
         }

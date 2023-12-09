@@ -32,8 +32,11 @@ public class MenuController {
     private Label namePrompt;
     private Scene settingsScene;
     private Scene howToPlayScene;
+    public Play play;
 
-
+    public void setPlay(Play play) {
+        this.play = play;
+    }
     // sets
     public void setSettingsScene(Scene scene){
         settingsScene = scene;
@@ -53,7 +56,6 @@ public class MenuController {
             fadeTransition.play();
         }
         else{
-            Play play = new Play();
             Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             stage.setScene(play.getScene());
             play.game();

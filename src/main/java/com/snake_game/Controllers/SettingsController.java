@@ -1,5 +1,6 @@
 package com.snake_game.Controllers;
 
+import com.snake_game.Play;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -17,20 +18,22 @@ public class SettingsController {
 
     @FXML
     private ImageView background;
-
-    @FXML
-    private TextField nameForm;
-
     private Scene menuScene;
-
     private final ArrayList<Image> images = new ArrayList<>();
     private int imageCounter = 0;
+
+    public void setPlay(Play play) {
+        this.play = play;
+    }
+
+    public Play play;
 
     public SettingsController() throws FileNotFoundException {
         // Adding game backgrounds to list
 
         images.add(new Image(new FileInputStream("src/main/resources/images/UI-background.png")));
         images.add(new Image(new FileInputStream("src/main/resources/images/UI-background2.png")));
+        images.add(new Image(new FileInputStream("src/main/resources/images/UI-background3.png")));
 
     }
 
@@ -42,17 +45,14 @@ public class SettingsController {
     void changeBackgroundLeft() {
         imageCounter --;
         background.setImage(images.get(imageCounter % images.size()));
+        play.background = images.get(imageCounter % images.size());
     }
 
     @FXML
     void changeBackgroundRight() {
         imageCounter ++;
         background.setImage(images.get(imageCounter % images.size()));
-    }
-
-
-    String getPlayerName() {
-        return nameForm.getText();
+        play.background = images.get(imageCounter % images.size());
     }
 
     @FXML

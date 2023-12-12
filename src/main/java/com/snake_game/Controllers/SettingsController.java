@@ -5,7 +5,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
@@ -18,15 +17,16 @@ public class SettingsController {
 
     @FXML
     private ImageView background;
+
     private Scene menuScene;
     private final ArrayList<Image> images = new ArrayList<>();
     private int imageCounter = 0;
+    public Play play;
+
 
     public void setPlay(Play play) {
         this.play = play;
     }
-
-    public Play play;
 
     public SettingsController() throws FileNotFoundException {
         // Adding game backgrounds to list
@@ -55,6 +55,20 @@ public class SettingsController {
         play.background = images.get(imageCounter % images.size());
     }
 
+    @FXML
+    void easyMode() {
+        play.mySnake.setSpeed_XY(3);
+    }
+
+    @FXML
+    void hardMode() {
+        play.mySnake.setSpeed_XY(5);
+    }
+
+    @FXML
+    void normalMode() {
+        play.mySnake.setSpeed_XY(4);
+    }
     @FXML
     void switchToMenu(ActionEvent event) {
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();

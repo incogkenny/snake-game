@@ -10,7 +10,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class MySnake extends SnakeObject implements movable {
-    // The game changer.
+
     private int speed_XY;
     private int length;
     private double num; // ?
@@ -42,6 +42,9 @@ public class MySnake extends SnakeObject implements movable {
 
     }
 
+    public void setSpeed_XY(int speed_XY) {
+        this.speed_XY = speed_XY;
+    }
     public int getLength() {
         return length;
     }

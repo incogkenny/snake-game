@@ -126,7 +126,6 @@ public class MySnake extends SnakeObject implements movable {
         eatBody();
 
         bodyPoints.add(new Point2D(x, y));
-        System.out.println(bodyPoints.size());
 
         if (bodyPoints.size() == (this.length + 1) * num) {
             bodyPoints.remove(0);

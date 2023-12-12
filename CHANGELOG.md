@@ -1,5 +1,8 @@
 ## Changelog
 
+### 12/12/2023
+- Added ability to change difficulty in Settings
+
 ### 09/12/2023
 - Able to now change Game Background in Settings
 

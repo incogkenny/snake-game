@@ -56,7 +56,7 @@ public class MySnake extends SnakeObject implements movable {
     public void keyPressed(KeyEvent e) {
         // check the key
         switch (e.getCode()) {
-            case UP:
+            case UP, W:
                 if (!down) {
                     up = true;
                     down = false;
@@ -67,7 +67,7 @@ public class MySnake extends SnakeObject implements movable {
                 }
                 break;
 
-            case DOWN:
+            case DOWN, S:
                 if (!up) {
                     up = false;
                     down = true;
@@ -78,7 +78,7 @@ public class MySnake extends SnakeObject implements movable {
                 }
                 break;
 
-            case LEFT:
+            case LEFT, A:
                 if (!right) {
                     up = false;
                     down = false;
@@ -90,7 +90,7 @@ public class MySnake extends SnakeObject implements movable {
                 }
                 break;
 
-            case RIGHT:
+            case RIGHT, D:
                 if (!left) {
                     up = false;
                     down = false;

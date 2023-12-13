@@ -5,6 +5,7 @@ import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -19,9 +20,6 @@ import javafx.scene.text.FontWeight;
 
 public class Play {
 
-    //@Serial
-//	private static final long serialVersionUID = -3641221053272056036L;
-
     public MySnake mySnake = new MySnake(100, 100);// x , y
     public Food food = new Food();
 
@@ -31,27 +29,79 @@ public class Play {
     public Canvas canvas;
     private GraphicsContext gc;
 
+    public AnimationTimer timer;
+
+    public Scene scene;
     public Scene getScene() {
         return scene;
     }
-
-    public Scene scene;
-
     public Play() {
         canvas = new Canvas(870, 560);
         gc = canvas.getGraphicsContext2D();
 
         BorderPane root = new BorderPane(canvas);
         scene = new Scene(root);
-        //stage.setScene(scene);
-        //stage.setTitle("Snake");
 
-        scene.setOnKeyPressed(e -> mySnake.keyPressed(e));
+        scene.setOnKeyPressed(this::keyPressed);
         //stage.show();
     }
 
+    public void keyPressed(KeyEvent e) {
+        // check the key
+        switch (e.getCode()) {
+            case UP, W:
+                if (!mySnake.down) {
+                    mySnake.up = true;
+                    mySnake.down = false;
+                    mySnake.left = false;
+                    mySnake.right = false;
+
+                    mySnake.newImgSnakeHead = GameUtil.rotateImage(mySnake.IMG_SNAKE_HEAD, -90);
+                }
+                break;
+
+            case DOWN, S:
+                if (!mySnake.up) {
+                    mySnake.up = false;
+                    mySnake.down = true;
+                    mySnake.left = false;
+                    mySnake.right = false;
+
+                    mySnake.newImgSnakeHead = GameUtil.rotateImage(mySnake.IMG_SNAKE_HEAD, 90);
+                }
+                break;
+
+            case LEFT, A:
+                if (!mySnake.right) {
+                    mySnake.up = false;
+                    mySnake.down = false;
+                    mySnake.left = true;
+                    mySnake.right = false;
+
+                    mySnake.newImgSnakeHead = GameUtil.rotateImage(mySnake.IMG_SNAKE_HEAD, -180);
+
+                }
+                break;
+
+            case RIGHT, D:
+                if (!mySnake.left) {
+                    mySnake.up = false;
+                    mySnake.down = false;
+                    mySnake.left = false;
+                    mySnake.right = true;
+
+                    mySnake.newImgSnakeHead = mySnake.IMG_SNAKE_HEAD.getImage();
+                }
+            case ESCAPE:
+
+
+
+            default:
+                break;
+        }
+    }
     public void game() {
-        new AnimationTimer() {
+        timer = new AnimationTimer() {
             @Override
             public void handle(long l) {
                 gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
@@ -61,7 +111,7 @@ public class Play {
                 // First checks if snake is alive
                 if (mySnake.state) {
                     mySnake.draw(gc);
-                    // Checks if food
+                    // Checks food
                     if (food.state) {
                         food.draw(gc);
                         food.eaten(mySnake);
@@ -75,7 +125,8 @@ public class Play {
 
 
             }
-        }.start();
+        };
+        timer.start();
 
     }
 
@@ -90,22 +141,4 @@ public class Play {
 
 
     }
-/*	
-	public static void main(String[] args)
-	{
-		JFrame frame = new JFrame();
-		// frame.setSize(400,600);
-		frame.setBounds(450, 200, 920, 600);
-		// frame.setResizable(false);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-		SnakePanel panel = new SnakePanel();
-		frame.add(panel);
-
-		frame.setVisible(true);
-
-		// Play the background music.
-		MusicPlayer.getMusicPlay("resource\\music\\background.mp3");
-	} 
-*/
 }

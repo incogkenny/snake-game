@@ -16,11 +16,11 @@ public class MySnake extends SnakeObject implements movable {
     private double num; // ?
     public int score = 0;
 
-    private static final ImageView IMG_SNAKE_HEAD = new ImageView(ImageUtil.images.get("snake-head-right"));
+    public final ImageView IMG_SNAKE_HEAD = new ImageView(ImageUtil.images.get("snake-head-right"));
 
     public static List<Point2D> bodyPoints = new LinkedList<>();
 
-    private static Image newImgSnakeHead;
+    public Image newImgSnakeHead;
     boolean up, down, left, right = true;
 
     public MySnake(int x, int y) {
@@ -53,57 +53,7 @@ public class MySnake extends SnakeObject implements movable {
         this.length = length;
     }
 
-    public void keyPressed(KeyEvent e) {
-        // check the key
-        switch (e.getCode()) {
-            case UP, W:
-                if (!down) {
-                    up = true;
-                    down = false;
-                    left = false;
-                    right = false;
 
-                    newImgSnakeHead = GameUtil.rotateImage(IMG_SNAKE_HEAD, -90);
-                }
-                break;
-
-            case DOWN, S:
-                if (!up) {
-                    up = false;
-                    down = true;
-                    left = false;
-                    right = false;
-
-                    newImgSnakeHead = GameUtil.rotateImage(IMG_SNAKE_HEAD, 90);
-                }
-                break;
-
-            case LEFT, A:
-                if (!right) {
-                    up = false;
-                    down = false;
-                    left = true;
-                    right = false;
-
-                    newImgSnakeHead = GameUtil.rotateImage(IMG_SNAKE_HEAD, -180);
-
-                }
-                break;
-
-            case RIGHT, D:
-                if (!left) {
-                    up = false;
-                    down = false;
-                    left = false;
-                    right = true;
-
-                    newImgSnakeHead = IMG_SNAKE_HEAD.getImage();
-                }
-
-            default:
-                break;
-        }
-    }
 
 
     public void move() {
@@ -128,7 +78,7 @@ public class MySnake extends SnakeObject implements movable {
         bodyPoints.add(new Point2D(x, y));
 
         if (bodyPoints.size() == (this.length + 1) * num) {
-            bodyPoints.remove(0);
+            bodyPoints.removeFirst();
         }
         g.drawImage(newImgSnakeHead, x, y);
         drawBody(g);

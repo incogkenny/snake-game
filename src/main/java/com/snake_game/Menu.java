@@ -2,6 +2,7 @@ package com.snake_game;
 
 import com.snake_game.Controllers.HelpController;
 import com.snake_game.Controllers.MenuController;
+import com.snake_game.Controllers.PauseController;
 import com.snake_game.Controllers.SettingsController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -28,8 +29,12 @@ public class Menu extends Application {
         FXMLLoader helpLoader = new FXMLLoader(getClass().getResource("/Views/help-view.fxml"));
         Scene scene3 = new Scene(helpLoader.load());
 
+        FXMLLoader pauseLoader = new FXMLLoader(getClass().getResource("/Views/pause-view.fxml"));
+        Scene scene4 = new Scene(pauseLoader.load());
+
         // Instantiates Game object
         Play game = new Play();
+        game.setStage(stage);
         // Scene Controllers get access to other scenes and the Play() instance
         MenuController menuController = menuLoader.getController();
         menuController.setPlay(game);
@@ -43,6 +48,12 @@ public class Menu extends Application {
 
         HelpController helpController = helpLoader.getController();
         helpController.setMenuScene(scene1);
+
+        PauseController pauseController = pauseLoader.getController();
+        pauseController.setMenuScene(scene1);
+        pauseController.setPlay(game);
+        game.setPauseScene(scene4);
+
 
 
         stage.setTitle("Snake");

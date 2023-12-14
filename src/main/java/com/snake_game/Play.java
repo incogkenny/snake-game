@@ -1,6 +1,8 @@
 package com.snake_game;
 
 import javafx.animation.AnimationTimer;
+import javafx.event.ActionEvent;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
@@ -10,6 +12,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import javafx.stage.Stage;
 
 
 /**
@@ -30,19 +33,25 @@ public class Play {
     private GraphicsContext gc;
 
     public AnimationTimer timer;
+    public Stage stage;
+    public Scene gameScene;
+    public Scene pauseScene;
 
-    public Scene scene;
-    public Scene getScene() {
-        return scene;
+    public void setStage(Stage stage){this.stage = stage;}
+    public void setPauseScene(Scene pauseScene) {
+        this.pauseScene = pauseScene;
+    }
+    public Scene getGameScene() {
+        return gameScene;
     }
     public Play() {
         canvas = new Canvas(870, 560);
         gc = canvas.getGraphicsContext2D();
 
         BorderPane root = new BorderPane(canvas);
-        scene = new Scene(root);
+        gameScene = new Scene(root);
 
-        scene.setOnKeyPressed(this::keyPressed);
+        gameScene.setOnKeyPressed(this::keyPressed);
         //stage.show();
     }
 
@@ -92,7 +101,11 @@ public class Play {
 
                     mySnake.newImgSnakeHead = mySnake.IMG_SNAKE_HEAD.getImage();
                 }
+                break;
             case ESCAPE:
+                timer.stop();
+                stage.setScene(pauseScene);
+                break;
 
 
 

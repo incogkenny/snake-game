@@ -57,7 +57,7 @@ public class MenuController {
         }
         else{
             Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-            stage.setScene(play.getScene());
+            stage.setScene(play.getGameScene());
             play.game();
             MusicPlayer.getMusicPlay("src/main/resources/sounds/frogger.mp3");
         }

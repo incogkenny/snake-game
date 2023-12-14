@@ -1,8 +1,6 @@
 package com.snake_game;
 
 import javafx.animation.AnimationTimer;
-import javafx.event.ActionEvent;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
@@ -23,27 +21,17 @@ import javafx.stage.Stage;
 
 public class Play {
 
+    private final GraphicsContext gc;
     public MySnake mySnake = new MySnake(100, 100);// x , y
     public Food food = new Food();
-
     public Image background = ImageUtil.images.get("UI-background");
     public Image fail = ImageUtil.images.get("game-scene-01");
-
     public Canvas canvas;
-    private GraphicsContext gc;
-
     public AnimationTimer timer;
     public Stage stage;
     public Scene gameScene;
     public Scene pauseScene;
 
-    public void setStage(Stage stage){this.stage = stage;}
-    public void setPauseScene(Scene pauseScene) {
-        this.pauseScene = pauseScene;
-    }
-    public Scene getGameScene() {
-        return gameScene;
-    }
     public Play() {
         canvas = new Canvas(870, 560);
         gc = canvas.getGraphicsContext2D();
@@ -55,13 +43,30 @@ public class Play {
         //stage.show();
     }
 
+    public static void main(String[] args) {
+        MusicPlayer.getMusicPlay("src/main/resources/sounds/frogger.mp3");
+
+
+    }
+
+    public void setStage(Stage stage) {
+        this.stage = stage;
+    }
+
+    public void setPauseScene(Scene pauseScene) {
+        this.pauseScene = pauseScene;
+    }
+
+    public Scene getGameScene() {
+        return gameScene;
+    }
+
     public void keyPressed(KeyEvent e) {
         // check the key
         switch (e.getCode()) {
             case UP, W:
                 if (!mySnake.down) {
                     mySnake.up = true;
-                    mySnake.down = false;
                     mySnake.left = false;
                     mySnake.right = false;
 
@@ -71,7 +76,6 @@ public class Play {
 
             case DOWN, S:
                 if (!mySnake.up) {
-                    mySnake.up = false;
                     mySnake.down = true;
                     mySnake.left = false;
                     mySnake.right = false;
@@ -85,7 +89,6 @@ public class Play {
                     mySnake.up = false;
                     mySnake.down = false;
                     mySnake.left = true;
-                    mySnake.right = false;
 
                     mySnake.newImgSnakeHead = GameUtil.rotateImage(mySnake.IMG_SNAKE_HEAD, -180);
 
@@ -96,7 +99,6 @@ public class Play {
                 if (!mySnake.left) {
                     mySnake.up = false;
                     mySnake.down = false;
-                    mySnake.left = false;
                     mySnake.right = true;
 
                     mySnake.newImgSnakeHead = mySnake.IMG_SNAKE_HEAD.getImage();
@@ -108,11 +110,11 @@ public class Play {
                 break;
 
 
-
             default:
                 break;
         }
     }
+
     public void game() {
         timer = new AnimationTimer() {
             @Override
@@ -147,11 +149,5 @@ public class Play {
         g.setFont(Font.font("SansSerif", FontWeight.BOLD, 30));
         g.setFill(Color.MAGENTA);
         g.fillText("SCORE : " + mySnake.score, 20, 40);
-    }
-
-    public static void main(String[] args) {
-        MusicPlayer.getMusicPlay("src/main/resources/sounds/frogger.mp3");
-
-
     }
 }

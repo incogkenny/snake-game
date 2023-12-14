@@ -1,5 +1,12 @@
 ## Changelog
 
+### 13/12/2023
+- Added .iml to let maven interpret resources
+- Added WASD as movement keys
+- Added Pause Menu
+  - By Pressing ESC the game pauses
+  - You can either return to the main menu or resume the game
+
 ### 12/12/2023
 - Added ability to change difficulty in Settings
 

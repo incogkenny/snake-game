@@ -46,10 +46,16 @@
          </ImageView>
       </center>
       <right>
-         <Button mnemonicParsing="false" onAction="#changeBackgroundRight" prefHeight="241.0" prefWidth="34.0" text="--&gt;" BorderPane.alignment="CENTER" />
+         <Button mnemonicParsing="false" onAction="#changeBackgroundRight" prefHeight="241.0" prefWidth="34.0" text="--&gt;" BorderPane.alignment="CENTER">
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor></Button>
       </right>
       <left>
-         <Button mnemonicParsing="false" onAction="#changeBackgroundLeft" prefHeight="281.0" prefWidth="34.0" text="&lt;--" BorderPane.alignment="CENTER" />
+         <Button mnemonicParsing="false" onAction="#changeBackgroundLeft" prefHeight="281.0" prefWidth="34.0" text="&lt;--" BorderPane.alignment="CENTER">
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor></Button>
       </left>
       <top>
          <Label text="Change in-game Background:" BorderPane.alignment="CENTER">
@@ -59,10 +65,9 @@
          </Label>
       </top>
    </BorderPane>
-   <ImageView fitHeight="100.0" fitWidth="144.0" layoutX="705.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true" smooth="false">
-      <image>
-         <Image url="@../images/back-button.png" />
-      </image>
+   <ImageView fitHeight="100.0" fitWidth="144.0" layoutX="705.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true"
+              smooth="false">
+      <Image url="@../images/back-button.png"/>
    </ImageView>
    <Button graphicTextGap="0.0" layoutX="705.0" layoutY="32.0" mnemonicParsing="false" onAction="#switchToMenu" opacity="0.0" prefHeight="100.0" prefWidth="100.0">
       <font>
@@ -79,16 +84,25 @@
       <toggleGroup>
          <ToggleGroup fx:id="difficulty" />
       </toggleGroup>
+      <cursor>
+         <Cursor fx:constant="HAND" />
+      </cursor>
    </ToggleButton>
    <ToggleButton layoutX="208.0" layoutY="189.0" mnemonicParsing="false" onAction="#normalMode" selected="true" text="Normal" toggleGroup="$difficulty">
       <font>
          <Font size="20.0" />
       </font>
+      <cursor>
+         <Cursor fx:constant="HAND" />
+      </cursor>
    </ToggleButton>
    <ToggleButton layoutX="300.0" layoutY="189.0" mnemonicParsing="false" onAction="#hardMode" text="Hard" toggleGroup="$difficulty">
       <font>
          <Font size="20.0" />
       </font>
+      <cursor>
+         <Cursor fx:constant="HAND" />
+      </cursor>
    </ToggleButton>
    <Label layoutX="179.0" layoutY="150.0" text="Change Difficulty:">
       <font>

@@ -21,7 +21,7 @@ import javafx.stage.Stage;
 
 public class Play {
 
-    private final GraphicsContext gc;
+    private GraphicsContext gc;
     public MySnake mySnake = new MySnake(100, 100);// x , y
     public Food food = new Food();
     public Image background = ImageUtil.images.get("UI-background");
@@ -143,6 +143,17 @@ public class Play {
         };
         timer.start();
 
+    }
+
+    public void reset(){
+        mySnake.bodyPoints.clear();
+        mySnake = new MySnake(100, 100);
+        food = new Food();
+        canvas = new Canvas(870, 560);
+        gc = canvas.getGraphicsContext2D();
+        BorderPane root = new BorderPane(canvas);
+        gameScene = new Scene(root);
+        gameScene.setOnKeyPressed(this::keyPressed);
     }
 
     public void drawScore(GraphicsContext g) {

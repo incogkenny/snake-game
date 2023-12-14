@@ -4,7 +4,6 @@ import javafx.geometry.Point2D;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.KeyEvent;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -13,12 +12,12 @@ public class MySnake extends SnakeObject implements movable {
 
     private int speed_XY;
     private int length;
-    private double num; // ?
+    private final double num; // ?
     public int score = 0;
 
     public final ImageView IMG_SNAKE_HEAD = new ImageView(ImageUtil.images.get("snake-head-right"));
 
-    public static List<Point2D> bodyPoints = new LinkedList<>();
+    public  List<Point2D> bodyPoints = new LinkedList<>();
 
     public Image newImgSnakeHead;
     boolean up, down, left, right = true;

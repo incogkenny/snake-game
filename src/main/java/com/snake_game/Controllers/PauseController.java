@@ -3,7 +3,9 @@ package com.snake_game.Controllers;
 import com.snake_game.Play;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 public class PauseController {
     public Play play;
@@ -14,13 +16,19 @@ public class PauseController {
         this.play = play;
     }
     @FXML
-    void quitGame() {
+    void quitGame(ActionEvent event) {
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setScene(menuScene);
+        play.reset();
+
 
     }
 
     @FXML
-    void resumeGame() {
-
+    void resumeGame(ActionEvent event) {
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setScene(play.gameScene);
+        play.timer.start();
     }
 
 }

@@ -4,7 +4,7 @@ This document is intended to guide contributors on how to unify the style of the
 
 ## Branch Style
 
-**Important: Before it is allowed, please merge into the 'develop' branch instead of the 'main' branch.**
+**Important: Before it is allowed, please merge into the 'dev' branch instead of the 'main' branch.**
 
 **The purpose of each branch**
 
@@ -14,7 +14,7 @@ This document is intended to guide contributors on how to unify the style of the
 
 - **'feature/title'**: Used to develop new features. These branches are created from the 'develop' branch.
 
-- **'bugfix/title'**: Used to fix bugs. These branches are created from the 'develop' branch.
+- **'bugfix/title'**: Used to fix bugs. These branches are created from the 'dev' branch.
 
 - **'release'**: Used for release versions. These branches are created from the 'develop' branch and merge into 'main' branch.
 

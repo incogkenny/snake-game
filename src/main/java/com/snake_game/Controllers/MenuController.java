@@ -1,6 +1,5 @@
 package com.snake_game.Controllers;
 
-import com.snake_game.MusicPlayer;
 import com.snake_game.Play;
 import javafx.animation.Animation;
 import javafx.animation.FadeTransition;
@@ -55,7 +54,6 @@ public class MenuController {
             Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             stage.setScene(play.getGameScene());
             play.game();
-            MusicPlayer.getMusicPlay("src/main/resources/sounds/frogger.mp3");
         }
 
     }

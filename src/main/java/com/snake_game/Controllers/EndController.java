@@ -7,31 +7,28 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class PauseController {
+public class EndController {
+
+
     public Play play;
     public Scene menuScene;
 
-    public void setMenuScene(Scene menuScene) {
-        this.menuScene = menuScene;
-    }
-
+    public void setMenuScene(Scene menuScene) {this.menuScene = menuScene;}
     public void setPlay(Play play) {
         this.play = play;
     }
     @FXML
-    void quitGame(ActionEvent event) {
-        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        stage.setScene(menuScene);
+    void playAgain(ActionEvent event) {
         play.reset();
-
-
-    }
-
-    @FXML
-    void resumeGame(ActionEvent event) {
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setScene(play.gameScene);
-        play.timer.start();
+        play.game();
+    }
+    @FXML
+    void quit(ActionEvent event) {
+        play.reset();
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setScene(menuScene);
     }
 
 }

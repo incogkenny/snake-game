@@ -2,13 +2,11 @@ package com.snake_game.Controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.stage.Stage;
-import java.io.IOException;
 
 /**
  * Controls Leaderboard view (leaderboard_view.fxml)
@@ -23,16 +21,18 @@ public class LeaderboardController {
 
     @FXML
     private TableView<?> table;
+    public Scene menu_scene;
+    public void setMenu_scene(Scene menu_scene) {
+        this.menu_scene = menu_scene;
+    }
 
     /**
     * Changes scene to Main Menu
     *
     */
     @FXML
-    void backtoMenu(ActionEvent event) throws IOException {
-        FXMLLoader menuLoader = new FXMLLoader(getClass().getResource("/Views/menu-view.fxml"));
-        Scene scene = new Scene(menuLoader.load());
+    void backtoMenu(ActionEvent event) {
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
+        stage.setScene(menu_scene);
     }
 }

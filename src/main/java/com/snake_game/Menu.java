@@ -1,6 +1,6 @@
 package com.snake_game;
 
-import com.snake_game.Controllers.HelpController;
+import com.snake_game.Controllers.LeaderboardController;
 import com.snake_game.Controllers.MenuController;
 import com.snake_game.Controllers.PauseController;
 import com.snake_game.Controllers.SettingsController;
@@ -26,8 +26,8 @@ public class Menu extends Application {
         FXMLLoader settingsLoader = new FXMLLoader(getClass().getResource("/Views/settings-view.fxml"));
         Scene scene2 = new Scene(settingsLoader.load());
 
-        FXMLLoader helpLoader = new FXMLLoader(getClass().getResource("/Views/help-view.fxml"));
-        Scene scene3 = new Scene(helpLoader.load());
+        FXMLLoader leaderboardLoader = new FXMLLoader(getClass().getResource("/Views/leaderboard-view.fxml"));
+        Scene scene3 = new Scene(leaderboardLoader.load());
 
         FXMLLoader pauseLoader = new FXMLLoader(getClass().getResource("/Views/pause-view.fxml"));
         Scene scene4 = new Scene(pauseLoader.load());
@@ -39,15 +39,14 @@ public class Menu extends Application {
         MenuController menuController = menuLoader.getController();
         menuController.setPlay(game);
         menuController.setSettingsScene(scene2);
-        menuController.setHowToPlayScene(scene3);
+        menuController.setLeaderboardScene(scene3);
 
         SettingsController settingsController = settingsLoader.getController();
         settingsController.setPlay(game);
         settingsController.setMenuScene(scene1);
 
-
-        HelpController helpController = helpLoader.getController();
-        helpController.setMenuScene(scene1);
+        LeaderboardController leaderboardController = leaderboardLoader.getController();
+        leaderboardController.setMenu_scene(scene1);
 
         PauseController pauseController = pauseLoader.getController();
         pauseController.setMenuScene(scene1);

@@ -1,9 +1,6 @@
 package com.snake_game;
 
-import com.snake_game.Controllers.HelpController;
-import com.snake_game.Controllers.MenuController;
-import com.snake_game.Controllers.PauseController;
-import com.snake_game.Controllers.SettingsController;
+import com.snake_game.Controllers.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -26,11 +23,14 @@ public class Menu extends Application {
         FXMLLoader settingsLoader = new FXMLLoader(getClass().getResource("/Views/settings-view.fxml"));
         Scene scene2 = new Scene(settingsLoader.load());
 
-        FXMLLoader helpLoader = new FXMLLoader(getClass().getResource("/Views/help-view.fxml"));
-        Scene scene3 = new Scene(helpLoader.load());
+        FXMLLoader leaderboardLoader = new FXMLLoader(getClass().getResource("/Views/leaderboard-view.fxml"));
+        Scene scene3 = new Scene(leaderboardLoader.load());
 
         FXMLLoader pauseLoader = new FXMLLoader(getClass().getResource("/Views/pause-view.fxml"));
         Scene scene4 = new Scene(pauseLoader.load());
+
+        FXMLLoader endLoader = new FXMLLoader(getClass().getResource("/Views/end-view.fxml"));
+        Scene scene5 = new Scene(endLoader.load());
 
         // Instantiates Game object
         Play game = new Play();
@@ -39,20 +39,26 @@ public class Menu extends Application {
         MenuController menuController = menuLoader.getController();
         menuController.setPlay(game);
         menuController.setSettingsScene(scene2);
-        menuController.setHowToPlayScene(scene3);
+        menuController.setLeaderboardScene(scene3);
 
         SettingsController settingsController = settingsLoader.getController();
         settingsController.setPlay(game);
         settingsController.setMenuScene(scene1);
 
-
-        HelpController helpController = helpLoader.getController();
-        helpController.setMenuScene(scene1);
+        LeaderboardController leaderboardController = leaderboardLoader.getController();
+        leaderboardController.setMenu_scene(scene1);
+        menuController.leaderboardController = leaderboardController;
 
         PauseController pauseController = pauseLoader.getController();
         pauseController.setMenuScene(scene1);
         pauseController.setPlay(game);
         game.setPauseScene(scene4);
+
+        EndController endController = endLoader.getController();
+        endController.setMenuScene(scene1);
+        endController.setPlay(game);
+        game.setEndScene(scene5);
+
 
 
 

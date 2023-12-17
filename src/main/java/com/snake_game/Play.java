@@ -12,6 +12,11 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
+
 
 /**
  * @author Sigurður Sigurðardóttir
@@ -25,12 +30,14 @@ public class Play {
     public MySnake mySnake = new MySnake(100, 100);// x , y
     public Food food = new Food();
     public Image background = ImageUtil.images.get("UI-background");
-    public Image fail = ImageUtil.images.get("game-scene-01");
     public Canvas canvas;
     public AnimationTimer timer;
     public Stage stage;
     public Scene gameScene;
     public Scene pauseScene;
+    public Scene endscene;
+
+    public String playerName;
 
     public Play() {
         canvas = new Canvas(870, 560);
@@ -43,12 +50,6 @@ public class Play {
         //stage.show();
     }
 
-    public static void main(String[] args) {
-        MusicPlayer.getMusicPlay("src/main/resources/sounds/frogger.mp3");
-
-
-    }
-
     public void setStage(Stage stage) {
         this.stage = stage;
     }
@@ -56,10 +57,11 @@ public class Play {
     public void setPauseScene(Scene pauseScene) {
         this.pauseScene = pauseScene;
     }
-
+    public void setEndScene(Scene scene){endscene = scene;}
     public Scene getGameScene() {
         return gameScene;
     }
+
 
     public void keyPressed(KeyEvent e) {
         // check the key
@@ -116,6 +118,7 @@ public class Play {
     }
 
     public void game() {
+        MusicPlayer.getMusicPlay("src/main/resources/sounds/frogger.mp3");
         timer = new AnimationTimer() {
             @Override
             public void handle(long l) {
@@ -134,7 +137,16 @@ public class Play {
                         food = new Food();
                     }
                 } else {
-                    gc.drawImage(fail, 0, 0);
+                    this.stop();
+                    try {
+
+                        String entry = playerName + "," + mySnake.score + "\n";
+                        Files.write(Paths.get("src/main/resources/leaderboard.csv"), entry.getBytes(), StandardOpenOption.CREATE, StandardOpenOption.APPEND);
+                    } catch (IOException e) {
+                        System.err.println("Error: File could not be written to");
+                        e.printStackTrace();
+                    }
+                    stage.setScene(endscene);
                 }
                 drawScore(gc);
 

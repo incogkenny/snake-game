@@ -1,6 +1,5 @@
 package com.snake_game.Controllers;
 
-import com.snake_game.MusicPlayer;
 import com.snake_game.Play;
 import javafx.animation.Animation;
 import javafx.animation.FadeTransition;
@@ -23,16 +22,18 @@ public class MenuController {
     @FXML
     private Button playButton;
     @FXML
-    private Button howToPlayButton;
-    @FXML
     private Button settingsButton;
     @FXML
     private Button exitButton;
     @FXML
     private Label namePrompt;
     private Scene settingsScene;
-    private Scene howToPlayScene;
+    private Scene leaderboardScene;
+
+    public LeaderboardController leaderboardController;
+
     public Play play;
+
 
     public void setPlay(Play play) {
         this.play = play;
@@ -41,10 +42,7 @@ public class MenuController {
     public void setSettingsScene(Scene scene){
         settingsScene = scene;
     }
-    public void setHowToPlayScene(Scene scene) {
-        howToPlayScene = scene;
-    }
-
+    public void setLeaderboardScene(Scene scene) {leaderboardScene = scene;}
     @FXML
     void playGame(ActionEvent event) {
         if (username.getText().trim().isEmpty()){
@@ -56,42 +54,44 @@ public class MenuController {
             fadeTransition.play();
         }
         else{
+            play.playerName = username.getText().trim();
             Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             stage.setScene(play.getGameScene());
             play.game();
-            MusicPlayer.getMusicPlay("src/main/resources/sounds/frogger.mp3");
         }
 
     }
-
-    @FXML
-    void exitGame() {
-        Platform.exit();
-        System.exit(0);
-    }
-
-    @FXML
-    void howToPlay(ActionEvent event) {
-        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        stage.setScene(howToPlayScene);
-    }
-
     @FXML
     void openSettings(ActionEvent event) {
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setScene(settingsScene);
     }
 
+    @FXML
+    void leaderboard(ActionEvent event) {
+        leaderboardController.refreshLeaderboard();
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setScene(leaderboardScene);
+
+    }
+    @FXML
+    void exitGame() {
+        Platform.exit();
+        System.exit(0);
+    }
+
+
+
 
 
     @FXML
     void initialize() {
         assert exitButton != null : "fx:id=\"exit\" was not injected: check your FXML file 'menu-view.fxml'.";
-        assert howToPlayButton != null : "fx:id=\"howToPlay_button\" was not injected: check your FXML file 'menu-view.fxml'.";
         assert playButton != null : "fx:id=\"playButton\" was not injected: check your FXML file 'menu-view.fxml'.";
         assert settingsButton != null : "fx:id=\"settings\" was not injected: check your FXML file 'menu-view.fxml'.";
 
     }
+
 
 
 }

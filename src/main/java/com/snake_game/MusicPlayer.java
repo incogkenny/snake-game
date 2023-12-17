@@ -1,89 +1,50 @@
 package com.snake_game;
 
-import javazoom.jl.decoder.JavaLayerException;
-import javazoom.jl.player.advanced.AdvancedPlayer;
-import javazoom.jl.player.advanced.PlaybackEvent;
-import javazoom.jl.player.advanced.PlaybackListener;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.util.Duration;
 
-import java.io.BufferedInputStream;
-import java.io.FileInputStream;
-import java.io.IOException;
+import java.net.URL;
 
-public class MusicPlayer extends Thread {
-	private String filename;
-	private AdvancedPlayer player;
-	private boolean looping;
-	private boolean backgroundMusicPlaying;
-	private boolean paused;
+
+public class MusicPlayer{
+    private MediaPlayer mediaPlayer;
+
+
 
 	public MusicPlayer(String filename, boolean looping) {
-		this.filename = filename;
-		this.looping = looping;
-		this.backgroundMusicPlaying = false;
-		this.paused = false;
-	}
 
-	@Override
-	public void run() {
-		super.run();
 		try {
-			while (looping) {
-				FileInputStream fileInputStream = new FileInputStream(filename);
-				BufferedInputStream bufferedInputStream = new BufferedInputStream(fileInputStream);
+			// gets the URL from the given filename
+			URL resource = getClass().getClassLoader().getResource(filename);
 
-				player = new AdvancedPlayer(bufferedInputStream);
-				player.setPlayBackListener(new PlaybackListener() {
-					@Override
-					public void playbackFinished(PlaybackEvent evt) {
-						if (looping && !paused) {
-							stopPlayback();  // Stop the current playback
-							restart();       // Restart from the beginning
-						}
-					}
-				});
+			// puts image url into media attribute
+            assert resource != null;
+            Media media = new Media(resource.toString());
 
-				player.play();
-				fileInputStream.close();
+			mediaPlayer = new MediaPlayer(media);
+
+			mediaPlayer.setAutoPlay(true);
+
+			if(looping) { //runs only if looping == true
+
+				mediaPlayer.setOnEndOfMedia(() -> mediaPlayer.seek(Duration.ZERO));
 			}
-		} catch (JavaLayerException | IOException e) {
-			e.printStackTrace();
-		}
-	}
+			// plays media
+			mediaPlayer.play();
 
-	public void playSound() {
-		try {
-			FileInputStream fileInputStream = new FileInputStream(filename);
-			BufferedInputStream bufferedInputStream = new BufferedInputStream(fileInputStream);
-
-			player = new AdvancedPlayer(bufferedInputStream);
-			player.play();
-
-			fileInputStream.close();
 		} catch (Exception e) {
-			e.printStackTrace();
-		}
+            System.err.println("\nCould not find music file");
+        }
+
+    }
+
+	public void play(){
+		mediaPlayer.play();
 	}
 
-	public void stopPlayback() {
-		if (player != null) {
-			player.close();
-		}
-	}
+	 public void pause(){
+		mediaPlayer.pause();
+	 }
 
-	public void stopBackgroundMusic() {
-		looping = false;
-		stopPlayback();
-		backgroundMusicPlaying = false;
-		paused = false;
-	}
-
-	public void pauseBackgroundMusic() {
-		paused = true;
-		looping = false;
-		stopPlayback();  // Pause by stopping the current playback
-	}
-
-	private void restart() {
-		backgroundMusicPlaying = true;
-	}
 }

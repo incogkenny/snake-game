@@ -19,12 +19,14 @@ public class Food extends SnakeObject
 	}
 /**
  * Checks if food has been eaten
- * 	if it has: The state of the food object is set to false, the snake increases in length and the score is updated.
+ * 	if it has: The state of the food object is set to false, bite sound is played, the snake increases in length and the score is updated.
  * 	Does nothing if food is still on the screen
  */
 	public void eaten(MySnake mySnake)	{
 
 		if (mySnake.getRectangle().intersects(this.getRectangle()) && state && mySnake.state)		{
+			MusicPlayer bite = new MusicPlayer("bite.mp3", false);
+			bite.play();
 			this.state = false;
 			mySnake.changeLength(mySnake.getLength() + 1);
 			mySnake.score += 100;

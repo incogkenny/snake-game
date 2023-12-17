@@ -30,8 +30,7 @@ public class Play {
     public MySnake mySnake = new MySnake(100, 100);// x , y
     public Food food = new Food();
     public Image background = ImageUtil.images.get("UI-background");
-    public MusicPlayer backgroundMusic = new MusicPlayer("src/main/resources/sounds/frogger.mp3",true);
-    public MusicPlayer biteSound = new MusicPlayer("src/main/resources/sounds/bite.mp3", false);
+    public MusicPlayer backgroundMusic;
     public Canvas canvas;
     public AnimationTimer timer;
     public Stage stage;
@@ -49,7 +48,6 @@ public class Play {
         gameScene = new Scene(root);
 
         gameScene.setOnKeyPressed(this::keyPressed);
-        //stage.show();
     }
 
     public void setStage(Stage stage) {
@@ -110,7 +108,7 @@ public class Play {
                 break;
             case ESCAPE:
                 timer.stop();
-                backgroundMusic.pauseBackgroundMusic();
+                backgroundMusic.pause();
                 stage.setScene(pauseScene);
                 break;
 
@@ -121,6 +119,8 @@ public class Play {
     }
 
     public void game() {
+        backgroundMusic = new MusicPlayer("frogger.mp3",true);
+        backgroundMusic.play();
         timer = new AnimationTimer() {
             @Override
             public void handle(long l) {
@@ -141,7 +141,8 @@ public class Play {
                         food = new Food();
                     }
                 } else {
-                    backgroundMusic.stopBackgroundMusic();
+                    backgroundMusic.pause();
+                    new MusicPlayer("deathsound.mp3",false);
                     this.stop();
 
                     try {
@@ -172,7 +173,6 @@ public class Play {
         BorderPane root = new BorderPane(canvas);
         gameScene = new Scene(root);
         gameScene.setOnKeyPressed(this::keyPressed);
-        backgroundMusic = new MusicPlayer("src/main/resources/sounds/frogger.mp3",true);
     }
 
     public void drawScore(GraphicsContext g) {

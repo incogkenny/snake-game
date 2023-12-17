@@ -5,6 +5,7 @@ module MuiruriJoshua_Source_Code {
     requires javafx.fxml;
     requires javafx.controls;
     requires javafx.graphics;
+    requires javafx.media;
 
     exports com.snake_game;
     opens com.snake_game to javafx.fxml, javafx.base;

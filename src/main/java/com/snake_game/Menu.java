@@ -47,6 +47,7 @@ public class Menu extends Application {
 
         LeaderboardController leaderboardController = leaderboardLoader.getController();
         leaderboardController.setMenu_scene(scene1);
+        menuController.leaderboardController = leaderboardController;
 
         PauseController pauseController = pauseLoader.getController();
         pauseController.setMenuScene(scene1);

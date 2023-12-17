@@ -24,6 +24,10 @@ import java.util.ResourceBundle;
 public class LeaderboardController implements Initializable {
     public Scene menu_scene;
     @FXML
+    private ResourceBundle resourceBundle;
+    @FXML
+    private URL url;
+    @FXML
     private TableColumn<Player, String> nameColumn;
     @FXML
     private TableColumn<Player, Integer> scoreColumn;
@@ -38,10 +42,17 @@ public class LeaderboardController implements Initializable {
         LeaderboardUtil.loadDataFromCSV(this, "src/main/resources/leaderboard.csv");
         leaderboardTable.setItems(playerData);
         leaderboardTable.getSortOrder().add(scoreColumn);
+
     }
 
     public void setMenu_scene(Scene menu_scene) {
         this.menu_scene = menu_scene;
+    }
+
+    public void refreshLeaderboard(){
+        playerData.clear();
+        initialize(url, resourceBundle);
+        leaderboardTable.refresh();
     }
 
     /**

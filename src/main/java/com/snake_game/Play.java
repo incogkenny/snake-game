@@ -12,6 +12,11 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
+
 
 /**
  * @author Sigurður Sigurðardóttir
@@ -32,6 +37,8 @@ public class Play {
     public Scene pauseScene;
     public Scene endscene;
 
+    public String playerName;
+
     public Play() {
         canvas = new Canvas(870, 560);
         gc = canvas.getGraphicsContext2D();
@@ -41,12 +48,6 @@ public class Play {
 
         gameScene.setOnKeyPressed(this::keyPressed);
         //stage.show();
-    }
-
-    public static void main(String[] args) {
-        MusicPlayer.getMusicPlay("src/main/resources/sounds/frogger.mp3");
-
-
     }
 
     public void setStage(Stage stage) {
@@ -137,6 +138,14 @@ public class Play {
                     }
                 } else {
                     this.stop();
+                    try {
+
+                        String entry = playerName + "," + mySnake.score + "\n";
+                        Files.write(Paths.get("src/main/resources/leaderboard.csv"), entry.getBytes(), StandardOpenOption.CREATE, StandardOpenOption.APPEND);
+                    } catch (IOException e) {
+                        System.err.println("Error: File could not be written to");
+                        e.printStackTrace();
+                    }
                     stage.setScene(endscene);
                 }
                 drawScore(gc);

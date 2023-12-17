@@ -29,6 +29,9 @@ public class MenuController {
     private Label namePrompt;
     private Scene settingsScene;
     private Scene leaderboardScene;
+
+    public LeaderboardController leaderboardController;
+
     public Play play;
 
 
@@ -51,6 +54,7 @@ public class MenuController {
             fadeTransition.play();
         }
         else{
+            play.playerName = username.getText().trim();
             Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             stage.setScene(play.getGameScene());
             play.game();
@@ -65,8 +69,10 @@ public class MenuController {
 
     @FXML
     void leaderboard(ActionEvent event) {
+        leaderboardController.refreshLeaderboard();
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setScene(leaderboardScene);
+
     }
     @FXML
     void exitGame() {

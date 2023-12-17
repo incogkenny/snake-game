@@ -21,24 +21,28 @@ public class LeaderboardUtil {
         }
 
         else{
-            try (BufferedReader reader = new BufferedReader(new FileReader((filePath)))) {
-                String line;
-                while ((line = reader.readLine()) != null) {
-                    String[] parts = line.split(",");
-                    if (parts.length == 2) {
-                        String name = parts[0].trim();
-                        int score = Integer.parseInt(parts[1].trim());
-                        leaderboardController.playerData.add(new Player(name, score));
-                    } else {
-                        System.err.println("Invalid CSV Format, Each line in the CSV file must have two values (Name, Score).");
-                    }
-                }
-            } catch (IOException | NumberFormatException e) {
-                System.err.println("Error Reading CSV: An error occurred while reading the CSV file.");
-                e.printStackTrace();
-            }
+            readDataFromFile(leaderboardController, filePath);
         }
 
+    }
+
+    private static void readDataFromFile(LeaderboardController leaderboardController, String filePath) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] parts = line.split(",");
+                if (parts.length == 2) {
+                    String name = parts[0].trim();
+                    int score = Integer.parseInt(parts[1].trim());
+                    leaderboardController.playerData.add(new Player(name, score));
+                } else {
+                    System.err.println("Invalid CSV Format, Each line in the CSV file must have two values (Name, Score).");
+                }
+            }
+        } catch (IOException | NumberFormatException e) {
+            System.err.println("Error Reading CSV: An error occurred while reading the CSV file.");
+            e.printStackTrace();
+        }
     }
 
 }

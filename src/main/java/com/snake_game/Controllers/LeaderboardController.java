@@ -59,7 +59,7 @@ public class LeaderboardController implements Initializable {
      * Changes scene to Main Menu
      */
     @FXML
-    void backtoMenu(ActionEvent event) {
+    void backToMenu(ActionEvent event) {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(menu_scene);
     }

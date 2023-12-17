@@ -48,7 +48,7 @@
     <ImageView fitHeight="100.0" fitWidth="144.0" layoutX="715.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true" smooth="false">
         <Image url="@../images/back-button.png" />
     </ImageView>
-   <Button layoutX="715.0" layoutY="42.0" mnemonicParsing="false" onAction="#backtoMenu" opacity="0.0" prefHeight="100.0" prefWidth="100.0">
+   <Button layoutX="715.0" layoutY="42.0" mnemonicParsing="false" onAction="#backToMenu" opacity="0.0" prefHeight="100.0" prefWidth="100.0">
       <font>
          <Font size="18.0" />
       </font>

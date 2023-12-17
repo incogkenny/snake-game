@@ -1,5 +1,6 @@
 package com.snake_game.Controllers;
 
+import com.snake_game.MusicPlayer;
 import com.snake_game.Play;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -20,6 +21,7 @@ public class PauseController {
     }
     @FXML
     void quitGame(ActionEvent event) {
+        play.backgroundMusic.stopBackgroundMusic();
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setScene(menuScene);
         play.reset();
@@ -32,6 +34,8 @@ public class PauseController {
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setScene(play.gameScene);
         play.timer.start();
+        play.backgroundMusic = new MusicPlayer("src/main/resources/sounds/frogger.mp3",true);
+        play.backgroundMusic.start();
     }
 
 }

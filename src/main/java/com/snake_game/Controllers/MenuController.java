@@ -58,6 +58,7 @@ public class MenuController {
             Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             stage.setScene(play.getGameScene());
             play.game();
+            play.backgroundMusic.start();
         }
 
     }

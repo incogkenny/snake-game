@@ -30,6 +30,8 @@ public class Play {
     public MySnake mySnake = new MySnake(100, 100);// x , y
     public Food food = new Food();
     public Image background = ImageUtil.images.get("UI-background");
+    public MusicPlayer backgroundMusic = new MusicPlayer("src/main/resources/sounds/frogger.mp3",true);
+    public MusicPlayer biteSound = new MusicPlayer("src/main/resources/sounds/bite.mp3", false);
     public Canvas canvas;
     public AnimationTimer timer;
     public Stage stage;
@@ -108,6 +110,7 @@ public class Play {
                 break;
             case ESCAPE:
                 timer.stop();
+                backgroundMusic.pauseBackgroundMusic();
                 stage.setScene(pauseScene);
                 break;
 
@@ -118,7 +121,6 @@ public class Play {
     }
 
     public void game() {
-        MusicPlayer.getMusicPlay("src/main/resources/sounds/frogger.mp3");
         timer = new AnimationTimer() {
             @Override
             public void handle(long l) {
@@ -134,10 +136,14 @@ public class Play {
                         food.draw(gc);
                         food.eaten(mySnake);
                     } else {
+
+                        // biteSound.playSound();
                         food = new Food();
                     }
                 } else {
+                    backgroundMusic.stopBackgroundMusic();
                     this.stop();
+
                     try {
 
                         String entry = playerName + "," + mySnake.score + "\n";
@@ -166,6 +172,7 @@ public class Play {
         BorderPane root = new BorderPane(canvas);
         gameScene = new Scene(root);
         gameScene.setOnKeyPressed(this::keyPressed);
+        backgroundMusic = new MusicPlayer("src/main/resources/sounds/frogger.mp3",true);
     }
 
     public void drawScore(GraphicsContext g) {

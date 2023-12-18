@@ -72,7 +72,7 @@ public class Play {
                     mySnake.left = false;
                     mySnake.right = false;
 
-                    mySnake.newImgSnakeHead = GameUtil.rotateImage(mySnake.IMG_SNAKE_HEAD, -90);
+                    mySnake.newImgSnakeHead = ImageUtil.rotateImage(mySnake.IMG_SNAKE_HEAD, -90);
                 }
                 break;
 
@@ -82,7 +82,7 @@ public class Play {
                     mySnake.left = false;
                     mySnake.right = false;
 
-                    mySnake.newImgSnakeHead = GameUtil.rotateImage(mySnake.IMG_SNAKE_HEAD, 90);
+                    mySnake.newImgSnakeHead = ImageUtil.rotateImage(mySnake.IMG_SNAKE_HEAD, 90);
                 }
                 break;
 
@@ -92,7 +92,7 @@ public class Play {
                     mySnake.down = false;
                     mySnake.left = true;
 
-                    mySnake.newImgSnakeHead = GameUtil.rotateImage(mySnake.IMG_SNAKE_HEAD, -180);
+                    mySnake.newImgSnakeHead = ImageUtil.rotateImage(mySnake.IMG_SNAKE_HEAD, -180);
 
                 }
                 break;
@@ -119,8 +119,6 @@ public class Play {
     }
 
     public void game() {
-        backgroundMusic = new MusicPlayer("frogger.mp3",true);
-        backgroundMusic.play();
         timer = new AnimationTimer() {
             @Override
             public void handle(long l) {

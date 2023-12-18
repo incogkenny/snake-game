@@ -1,6 +1,10 @@
 package com.snake_game;
 
+import javafx.scene.SnapshotParameters;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.paint.Color;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -11,28 +15,51 @@ public class ImageUtil
 	static
 	{
 		// snake
-		images.put("snake-head-right", GameUtil.getImage("snake-head-right.png"));
-		images.put("snake-body", GameUtil.getImage("snake-body.png"));
+		images.put("snake-head-right", getImage("snake-head-right.png"));
+		images.put("snake-body", getImage("snake-body.png"));
 		// obstacles
-		images.put("0", GameUtil.getImage("food-kiwi.png"));
-		images.put("1", GameUtil.getImage("food-lemon.png"));
-		images.put("2", GameUtil.getImage("food-litchi.png"));
-		images.put("3", GameUtil.getImage("food-mango.png"));
-		images.put("4", GameUtil.getImage("food-apple.png"));
-		images.put("5", GameUtil.getImage("food-banana.png"));
-		images.put("6", GameUtil.getImage("food-blueberry.png"));
-		images.put("7", GameUtil.getImage("food-cherry.png"));
-		images.put("8", GameUtil.getImage("food-durian.png"));
-		images.put("9", GameUtil.getImage("food-grape.png"));
-		images.put("10", GameUtil.getImage("food-grapefruit.png"));
-		images.put("11", GameUtil.getImage("food-peach.png"));
-		images.put("12", GameUtil.getImage("food-pear.png"));
-		images.put("13", GameUtil.getImage("food-orange.png"));
-		images.put("14", GameUtil.getImage("food-pineapple.png"));
-		images.put("15", GameUtil.getImage("food-strawberry.png"));
-		images.put("16", GameUtil.getImage("food-watermelon.png"));
-		images.put("UI-background", GameUtil.getImage("UI-background.png"));
-		images.put("UI-background2", GameUtil.getImage("UI-background2.png"));
-		images.put("game-scene-01", GameUtil.getImage("end.png"));
+		images.put("0", getImage("food-kiwi.png"));
+		images.put("1", getImage("food-lemon.png"));
+		images.put("2", getImage("food-litchi.png"));
+		images.put("3", getImage("food-mango.png"));
+		images.put("4", getImage("food-apple.png"));
+		images.put("5", getImage("food-banana.png"));
+		images.put("6", getImage("food-blueberry.png"));
+		images.put("7", getImage("food-cherry.png"));
+		images.put("8", getImage("food-durian.png"));
+		images.put("9", getImage("food-grape.png"));
+		images.put("10", getImage("food-grapefruit.png"));
+		images.put("11", getImage("food-peach.png"));
+		images.put("12", getImage("food-pear.png"));
+		images.put("13", getImage("food-orange.png"));
+		images.put("14", getImage("food-pineapple.png"));
+		images.put("15", getImage("food-strawberry.png"));
+		images.put("16", getImage("food-watermelon.png"));
+		images.put("UI-background", getImage("UI-background.png"));
+		images.put("UI-background2", getImage("UI-background2.png"));
+		images.put("game-scene-01", getImage("end.png"));
+	}
+
+	public static Image getImage(String imagePath)
+	{
+		Image i = null;
+		try {
+			i = new Image(imagePath);
+		}catch (Exception e)
+
+		{
+			System.err.println("ERROR : Specific Image not Found!\n");
+			e.printStackTrace();
+		}
+
+		return i;
+	}
+
+	public static Image rotateImage(ImageView image, double angle){
+		image.setRotate(angle);
+		SnapshotParameters p = new SnapshotParameters();
+		p.setFill(Color.TRANSPARENT);
+		return image.snapshot(p, null);
+
 	}
 }

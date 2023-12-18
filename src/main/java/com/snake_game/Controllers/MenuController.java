@@ -75,9 +75,9 @@ public class MenuController {
             fadeTransition.play();
         } else {
             play.playerName = username.getText().trim();
+            play.backgroundMusic = new MusicPlayer("frogger.mp3", true);
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(play.getGameScene());
-            play.backgroundMusic = new MusicPlayer("frogger.mp3", true);
             play.game();
         }
 

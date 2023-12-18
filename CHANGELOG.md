@@ -1,4 +1,22 @@
-## Changelog
+# Changelog
+
+### 18/12/2023
+- Removed GameUtil class and moved methods to ImageUtil class
+-  Added Javadoc comments to all classes
+
+### 17/12/2023
+- Fully implemented Leaderboard
+  - Leaderboard is now accessible from Main menu
+  - Player name and score are added after they lose the game
+- MusicPlayer class overhauled
+  - Instead of java zoom Player it uses JavaFX Media class
+  - Now loops background music
+  - Plays bite sound when food is eaten
+  - Plays game over sound
+
+### 16/12/2023
+- Fixed Game over screen
+  - Now when the game ends it switches to a different "end" scene
 
 ### 13/12/2023
 - Added .iml to let maven interpret resources

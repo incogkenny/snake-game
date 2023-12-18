@@ -19,10 +19,13 @@ import java.util.ResourceBundle;
 
 
 /**
- * Controls Leaderboard view (leaderboard_view.fxml)
+ * This class controls the leaderboard screen (scene). It contains functions to interact with the leaderboard table.
  */
 public class LeaderboardController implements Initializable {
     public Scene menu_scene;
+    @FXML
+    public TableView<Player> leaderboardTable;
+    public ObservableList<Player> playerData = FXCollections.observableArrayList();
     @FXML
     private ResourceBundle resourceBundle;
     @FXML
@@ -31,10 +34,13 @@ public class LeaderboardController implements Initializable {
     private TableColumn<Player, String> nameColumn;
     @FXML
     private TableColumn<Player, Integer> scoreColumn;
-    @FXML
-    public TableView<Player> leaderboardTable;
-    public ObservableList<Player> playerData = FXCollections.observableArrayList();
 
+    /**
+     * This function initialises the TableView on the leaderboard screen by adding data to the columns
+     *
+     * @param url .
+     * @param resourceBundle .
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("Name"));
@@ -45,22 +51,32 @@ public class LeaderboardController implements Initializable {
 
     }
 
+    /**
+     * This function sets the menuScene attribute
+     *
+     * @param menu_scene JavaFX scene for Main menu
+     */
     public void setMenu_scene(Scene menu_scene) {
         this.menu_scene = menu_scene;
     }
 
-    public void refreshLeaderboard(){
+    /**
+     * This function refreshes the leaderboardTable when new data is added
+     */
+    public void refreshLeaderboard() {
         playerData.clear();
         initialize(url, resourceBundle);
         leaderboardTable.refresh();
     }
 
     /**
-     * Changes scene to Main Menu
+     * This function changes scene to Main Menu
+     *
+     * @param event Action event for button press
      */
     @FXML
     void backToMenu(ActionEvent event) {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(menu_scene);
     }
-    }
+}

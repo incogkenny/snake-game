@@ -13,6 +13,9 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
+/**
+ * This class controls the settings screen. It includes functions to change settings of the game
+ */
 public class SettingsController {
 
     @FXML
@@ -24,10 +27,20 @@ public class SettingsController {
     public Play play;
 
 
+    /**
+     * This function sets the play attribute
+     *
+     * @param play Instance of the playable game
+     */
     public void setPlay(Play play) {
         this.play = play;
     }
 
+    /**
+     * This constructor adds backgrounds to list, so they can be easier accessed within class
+     *
+     * @throws FileNotFoundException thrown when backgrounds aren't found
+     */
     public SettingsController() throws FileNotFoundException {
         // Adding game backgrounds to list
 
@@ -37,41 +50,67 @@ public class SettingsController {
 
     }
 
-    public void setMenuScene(Scene scene){
+    /**
+     * This function sets the menuScene attribute
+     *
+     * @param scene JavaFX scene for Main menu
+     */
+    public void setMenuScene(Scene scene) {
         menuScene = scene;
     }
 
+    /**
+     * This function changes the background for the game. (It goes to the previous image in the images list)
+     */
     @FXML
     void changeBackgroundLeft() {
-        imageCounter --;
+        imageCounter--;
         background.setImage(images.get(imageCounter % images.size()));
         play.background = images.get(imageCounter % images.size());
     }
 
+    /**
+     * This function changes the background for the game. (It goes to the next image in the images list)
+     */
     @FXML
     void changeBackgroundRight() {
-        imageCounter ++;
+        imageCounter++;
         background.setImage(images.get(imageCounter % images.size()));
         play.background = images.get(imageCounter % images.size());
     }
 
+    /**
+     * This function changes the game to easy mode (reduced speed)
+     */
     @FXML
     void easyMode() {
         play.mySnake.setSpeed_XY(3);
     }
 
+    /**
+     * This function changes the game to hard mode (increases speed)
+     */
     @FXML
     void hardMode() {
         play.mySnake.setSpeed_XY(5);
     }
 
+    /**
+     * This function changes the game to normal mode (original speed)
+     */
     @FXML
     void normalMode() {
         play.mySnake.setSpeed_XY(4);
     }
+
+    /**
+     * This function switches the scene to the Main menu
+     *
+     * @param event Action event for back button
+     */
     @FXML
     void switchToMenu(ActionEvent event) {
-        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(menuScene);
     }
 

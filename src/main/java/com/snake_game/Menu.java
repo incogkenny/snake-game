@@ -8,12 +8,26 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 
+/**
+ * This class is used to start the games Application by opening the Main menu
+ */
 public class Menu extends Application {
 
+    /**
+     * This function launches the Menu Application
+     *
+     * @param args Command line arguments (not used).
+     */
     public static void main(String[] args) {
-        launch(args);
+        launch();
     }
 
+    /**
+     * Initialises the game scenes, controllers, and sets up the main stage.
+     *
+     * @param stage The primary stage for the application.
+     * @throws Exception If there is an error during initialisation.
+     */
     @Override
     public void start(Stage stage) throws Exception {
         // Loads fxml files into scenes
@@ -58,8 +72,6 @@ public class Menu extends Application {
         endController.setMenuScene(scene1);
         endController.setPlay(game);
         game.setEndScene(scene5);
-
-
 
 
         stage.setTitle("Snake");

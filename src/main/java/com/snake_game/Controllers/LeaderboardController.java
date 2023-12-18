@@ -45,7 +45,7 @@ public class LeaderboardController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("Name"));
         scoreColumn.setCellValueFactory(new PropertyValueFactory<>("Score"));
-        LeaderboardUtil.loadDataFromCSV(this, "src/main/resources/leaderboard.csv");
+        LeaderboardUtil.loadDataFromCSV(playerData, "src/main/resources/leaderboard.csv");
         leaderboardTable.setItems(playerData);
         leaderboardTable.getSortOrder().add(scoreColumn);
 

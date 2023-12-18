@@ -18,12 +18,10 @@ import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 
 
-/**
- * @author Sigurður Sigurðardóttir
- * @version Not Sure
- * @code Play the game
- */
 
+/**
+ * This class manages the game loop and handles user input. It includes the snake, food, canvas, and scenes.
+ */
 public class Play {
 
     private GraphicsContext gc;
@@ -40,6 +38,10 @@ public class Play {
 
     public String playerName;
 
+    /**
+     * Constructor for the Play class
+     * Initialises the canvas, graphics context, scenes, and sets up the key event listener
+     */
     public Play() {
         canvas = new Canvas(870, 560);
         gc = canvas.getGraphicsContext2D();
@@ -50,19 +52,38 @@ public class Play {
         gameScene.setOnKeyPressed(this::keyPressed);
     }
 
+    /**
+     * This function sets the primary stage for the game
+     * @param stage The primary stage of the application
+     */
     public void setStage(Stage stage) {
         this.stage = stage;
     }
 
+    /**
+     * This function sets the pause scene for the game
+     * @param pauseScene The scene displayed when the game is paused
+     */
     public void setPauseScene(Scene pauseScene) {
         this.pauseScene = pauseScene;
     }
+    /**
+     * This function sets the end scene for the game
+     * @param scene The scene displayed when the game ends
+     */
     public void setEndScene(Scene scene){endscene = scene;}
+    /**
+     * This function gets the game scene
+     * @return The game scene
+     */
     public Scene getGameScene() {
         return gameScene;
     }
 
-
+    /**
+     * This function handles key events for controlling the snake and pausing the game.
+     * @param e The KeyEvent object representing the key event.
+     */
     public void keyPressed(KeyEvent e) {
         // check the key
         switch (e.getCode()) {
@@ -118,6 +139,9 @@ public class Play {
         }
     }
 
+    /**
+     * This function handles the game loop that constantly updates the state of the game and renders it on the canvas.
+     */
     public void game() {
         timer = new AnimationTimer() {
             @Override
@@ -133,16 +157,17 @@ public class Play {
                     if (food.state) {
                         food.draw(gc);
                         food.eaten(mySnake);
+                        // Creates new food
                     } else {
-
-                        // biteSound.playSound();
                         food = new Food();
                     }
+                    // Ends game
                 } else {
                     backgroundMusic.pause();
                     new MusicPlayer("deathsound.mp3",false);
                     this.stop();
 
+                    // Adds Player name and score to leaderboard file.
                     try {
 
                         String entry = playerName + "," + mySnake.score + "\n";
@@ -162,7 +187,10 @@ public class Play {
 
     }
 
-    public void reset(){
+    /**
+     * This function resets the game by reinitialising the snake, food, canvas, and game scene.
+     */
+    public void reset() {
         mySnake.bodyPoints.clear();
         mySnake = new MySnake(100, 100);
         food = new Food();
@@ -173,9 +201,18 @@ public class Play {
         gameScene.setOnKeyPressed(this::keyPressed);
     }
 
+    /**
+     * This function draws the score on the graphics context.
+     * @param g The graphics context on which the score is drawn.
+     */
     public void drawScore(GraphicsContext g) {
         g.setFont(Font.font("SansSerif", FontWeight.BOLD, 30));
         g.setFill(Color.MAGENTA);
         g.fillText("SCORE : " + mySnake.score, 20, 40);
     }
 }
+
+
+
+
+

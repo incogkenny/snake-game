@@ -59,7 +59,7 @@ public class LeaderboardController implements Initializable {
     /**
      * Initialises the TableView on the leaderboard screen by adding data to the columns
      *
-     * @param url .
+     * @param url            .
      * @param resourceBundle .
      */
     @Override

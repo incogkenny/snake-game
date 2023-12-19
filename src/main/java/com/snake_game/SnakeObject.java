@@ -5,6 +5,9 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
 
+/**
+ * Skeleton for objects that are drawn in the game
+ */
 public abstract class SnakeObject {
     /**
      * X coordinate
@@ -33,7 +36,9 @@ public abstract class SnakeObject {
     public boolean state;
 
 
-    /** draws to Canvas
+    /**
+     * draws to Canvas
+     *
      * @param g Allows Canvas to be drawn to
      */
     public abstract void draw(GraphicsContext g);

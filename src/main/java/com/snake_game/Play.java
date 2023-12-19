@@ -18,7 +18,6 @@ import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 
 
-
 /**
  * Manages the game loop and handles user input. It includes the snake, food, canvas, and scenes.
  */
@@ -90,6 +89,7 @@ public class Play {
 
     /**
      * Sets the primary stage for the game
+     *
      * @param stage The primary stage of the application
      */
     public void setStage(Stage stage) {
@@ -98,18 +98,25 @@ public class Play {
 
     /**
      * Sets the pause scene for the game
+     *
      * @param pauseScene The scene displayed when the game is paused
      */
     public void setPauseScene(Scene pauseScene) {
         this.pauseScene = pauseScene;
     }
+
     /**
      * Sets the end scene for the game
+     *
      * @param scene The scene displayed when the game ends
      */
-    public void setEndScene(Scene scene){endscene = scene;}
+    public void setEndScene(Scene scene) {
+        endscene = scene;
+    }
+
     /**
      * Returns the game scene
+     *
      * @return The game scene
      */
     public Scene getGameScene() {
@@ -118,6 +125,7 @@ public class Play {
 
     /**
      * Handles key events for controlling the snake and pausing the game.
+     *
      * @param e The KeyEvent object representing the key event.
      */
     public void keyPressed(KeyEvent e) {
@@ -200,7 +208,7 @@ public class Play {
                     // Ends game
                 } else {
                     backgroundMusic.pause();
-                    new MusicPlayer("deathsound.mp3",false);
+                    new MusicPlayer("deathsound.mp3", false);
                     this.stop();
 
                     // Adds Player name and score to leaderboard file.
@@ -239,6 +247,7 @@ public class Play {
 
     /**
      * Draws the score on the graphics context.
+     *
      * @param g The graphics context on which the score is drawn.
      */
     public void drawScore(GraphicsContext g) {

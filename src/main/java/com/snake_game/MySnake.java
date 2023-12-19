@@ -51,13 +51,13 @@ public class MySnake extends SnakeObject {
     boolean up, /**
      * When Snake head is facing down
      */
- down, /**
+    down, /**
      * When Snake head is facing left
      */
- left, /**
+    left, /**
      * When Snake head is facing right
      */
- right = true;
+    right = true;
 
     /**
      * Initialises attributes in the class

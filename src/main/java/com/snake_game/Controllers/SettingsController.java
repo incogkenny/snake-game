@@ -18,12 +18,27 @@ import java.util.ArrayList;
  */
 public class SettingsController {
 
+    /**
+     * Represents Image changer on Settings screen
+     */
     @FXML
     private ImageView background;
 
+    /**
+     * Stores Scene for Main menu
+     */
     private Scene menuScene;
+    /**
+     * List storing images to choose
+     */
     private final ArrayList<Image> images = new ArrayList<>();
+    /**
+     * Used to select images
+     */
     private int imageCounter = 0;
+    /**
+     * Stores instance of playable game
+     */
     public Play play;
 
 

@@ -8,12 +8,19 @@ import javafx.beans.property.SimpleStringProperty;
  * It uses SimpleStringProperty for the player's name and SimpleIntegerProperty for the score.
  */
 public final class Player {
+    /**
+     * Property for Name
+     */
     public SimpleStringProperty Name;
+    /**
+     * Property for Score
+     */
     public SimpleIntegerProperty Score;
 
     /**
      * Constructor for the Player class.
-     * @param name The name of the player.
+     *
+     * @param name  The name of the player.
      * @param score The score of the player.
      */
     public Player(String name, Integer score) {
@@ -23,6 +30,7 @@ public final class Player {
 
     /**
      * Gets the name of the player.
+     *
      * @return The name of the player.
      */
     public String getName() {
@@ -31,6 +39,7 @@ public final class Player {
 
     /**
      * Gets the score of the player.
+     *
      * @return The score of the player.
      */
     public int getScore() {
@@ -39,6 +48,7 @@ public final class Player {
 
     /**
      * Sets the name of the player.
+     *
      * @param name The new name of the player.
      */
     public void setName(String name) {
@@ -47,6 +57,7 @@ public final class Player {
 
     /**
      * Sets the score of the player.
+     *
      * @param score The new score of the player.
      */
     public void setScore(int score) {

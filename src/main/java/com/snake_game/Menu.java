@@ -9,12 +9,12 @@ import javafx.stage.Stage;
 
 
 /**
- * This class is used to start the games Application by opening the Main menu
+ * Used to start the games Application by opening the Main menu
  */
 public class Menu extends Application {
 
     /**
-     * This function launches the Menu Application
+     * Launches the Menu Application
      *
      * @param args Command line arguments (not used).
      */

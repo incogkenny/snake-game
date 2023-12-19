@@ -8,16 +8,22 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 /**
- * This class is used to control the end screen that appears when the game ends. It contains functions to change scenes.
+ * Used to control the end screen that appears when the game ends. It contains functions to change scenes.
  */
 public class EndController {
 
 
+    /**
+     * Instance reference containing instance of playable game
+     */
     public Play play;
+    /**
+     * Stores Scene for Main menu
+     */
     public Scene menuScene;
 
     /**
-     * This function sets the menuScene attribute
+     * Sets the menuScene attribute
      *
      * @param menuScene JavaFX scene for Main menu
      */
@@ -26,7 +32,7 @@ public class EndController {
     }
 
     /**
-     * This function sets the play attribute
+     * Sets the play attribute
      *
      * @param play Instance of playable game
      */
@@ -35,7 +41,7 @@ public class EndController {
     }
 
     /**
-     * This function takes the player back to a new game. Works by switching scene and resetting play instance. This function is the result of a button press.
+     * Takes the player back to a new game. Works by switching scene and resetting play instance. This function is the result of a button press.
      *
      * @param event Action event thrown by button press
      */
@@ -49,7 +55,7 @@ public class EndController {
     }
 
     /**
-     * This function quits the game and takes the player back to the Main menu. This function is the result of a button press.
+     * Quits the game and takes the player back to the Main menu. This function is the result of a button press.
      *
      * @param event Action event thrown by button press
      */

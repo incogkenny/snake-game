@@ -19,24 +19,45 @@ import java.util.ResourceBundle;
 
 
 /**
- * This class controls the leaderboard screen (scene). It contains functions to interact with the leaderboard table.
+ * Controls the leaderboard screen (scene). It contains functions to interact with the leaderboard table.
  */
 public class LeaderboardController implements Initializable {
+    /**
+     * Stores Scene for Main menu
+     */
     public Scene menu_scene;
+    /**
+     * TableView for Leaderboard screen
+     */
     @FXML
     public TableView<Player> leaderboardTable;
+    /**
+     * List that stores Player records
+     */
     public ObservableList<Player> playerData = FXCollections.observableArrayList();
+    /**
+     * Used in initialize() class
+     */
     @FXML
     private ResourceBundle resourceBundle;
+    /**
+     * Used in initialize() class
+     */
     @FXML
     private URL url;
+    /**
+     * Column for Player names in Leaderboard table
+     */
     @FXML
     private TableColumn<Player, String> nameColumn;
+    /**
+     * Column for Player scores in Leaderboard table
+     */
     @FXML
     private TableColumn<Player, Integer> scoreColumn;
 
     /**
-     * This function initialises the TableView on the leaderboard screen by adding data to the columns
+     * Initialises the TableView on the leaderboard screen by adding data to the columns
      *
      * @param url .
      * @param resourceBundle .
@@ -52,7 +73,7 @@ public class LeaderboardController implements Initializable {
     }
 
     /**
-     * This function sets the menuScene attribute
+     * Sets the menuScene attribute
      *
      * @param menu_scene JavaFX scene for Main menu
      */
@@ -61,7 +82,7 @@ public class LeaderboardController implements Initializable {
     }
 
     /**
-     * This function refreshes the leaderboardTable when new data is added
+     * Refreshes the leaderboardTable when new data is added
      */
     public void refreshLeaderboard() {
         playerData.clear();
@@ -70,7 +91,7 @@ public class LeaderboardController implements Initializable {
     }
 
     /**
-     * This function changes scene to Main Menu
+     * Changes scene to Main Menu
      *
      * @param event Action event for button press
      */

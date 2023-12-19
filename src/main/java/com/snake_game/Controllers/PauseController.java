@@ -8,14 +8,20 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 /**
- * This class controls the pause menu screen. It contains functions to switch scenes.
+ * Controls the pause menu screen. It contains functions to switch scenes.
  */
 public class PauseController {
+    /**
+     * Instance reference containing instance of playable game
+     */
     public Play play;
+    /**
+     * Stores Scene for Main menu
+     */
     public Scene menuScene;
 
     /**
-     * This function sets the scene for the menuScene attribute
+     * Sets the scene for the menuScene attribute
      *
      * @param menuScene JavaFX scene for Main menu
      */
@@ -24,7 +30,7 @@ public class PauseController {
     }
 
     /**
-     * This function sets the scene for the play attribute
+     * Sets the scene for the play attribute
      *
      * @param play Instance of playable game
      */
@@ -33,7 +39,7 @@ public class PauseController {
     }
 
     /**
-     * This function quits the game and goes back to the Main menu
+     * Quits the game and goes back to the Main menu
      *
      * @param event Action event for "Quit" button press
      */
@@ -48,7 +54,7 @@ public class PauseController {
     }
 
     /**
-     * This function resumes the game after it is paused
+     * Resumes the game after it is paused
      *
      * @param event Action event for "Resume" button press
      */

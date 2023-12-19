@@ -16,21 +16,39 @@ import javafx.util.Duration;
 
 
 /**
- * This class controls the Main menu screen. It contains functions to switch scenes.
+ * Controls the Main menu screen. It contains functions to switch scenes.
  */
 public class MenuController {
 
+    /**
+     * Reference to Leaderboard controller for game
+     */
     public LeaderboardController leaderboardController;
+    /**
+     * Instance reference containing instance of playable game
+     */
     public Play play;
+    /**
+     * Stores username entered by player
+     */
     @FXML
     private TextField username;
+    /**
+     * Label that pops up when username isn't entered
+     */
     @FXML
     private Label namePrompt;
+    /**
+     * Stores Scene for Settings screen
+     */
     private Scene settingsScene;
+    /**
+     * Stores Scene for Leaderboard screen
+     */
     private Scene leaderboardScene;
 
     /**
-     * This function sets the play attribute.
+     * Sets the play attribute.
      *
      * @param play Instance of playable game
      */
@@ -39,7 +57,7 @@ public class MenuController {
     }
 
     /**
-     * This function sets the scene attribute for the settings screen.
+     * Sets the scene attribute for the settings screen.
      *
      * @param scene JavaFX Scene for Settings screen
      */
@@ -49,7 +67,7 @@ public class MenuController {
     }
 
     /**
-     * This function sets the scene attribute for the leaderboard screen.
+     * Sets the scene attribute for the leaderboard screen.
      *
      * @param scene JavaFX Scene for Leaderboard screen
      */
@@ -58,7 +76,7 @@ public class MenuController {
     }
 
     /**
-     * This function changes to the scene for the actual game.
+     * Changes to the scene for the actual game.
      * If the text box on the Main menu is empty it will not switch scenes and will instead show a flashing label popup to tell player to enter a name.
      * The game cannot be started unless a name is entered.
      *
@@ -84,7 +102,7 @@ public class MenuController {
     }
 
     /**
-     * This function changes to the Settings screen
+     * Changes to the Settings screen
      *
      * @param event Action event for "Settings" button press
      */
@@ -95,7 +113,7 @@ public class MenuController {
     }
 
     /**
-     * This function changes to the Leaderboard screen
+     * Changes to the Leaderboard screen
      *
      * @param event Action event for "Leaderboard" button press
      */
@@ -108,7 +126,7 @@ public class MenuController {
     }
 
     /**
-     * This function exits the game window.
+     * Exits the game window and application.
      */
     @FXML
     void exitGame() {

@@ -1,3 +1,6 @@
+/**
+ * Contains classes to run Snake Game
+ */
 module MuiruriJoshua_Source_Code {
 
     requires jlayer;

@@ -9,25 +9,58 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * This class represents the snake (player) object in the game. It extends the SnakeObject class
+ * Represents the snake (player) object in the game. It extends the SnakeObject class
  * * and implements the movable interface.
  */
 public class MySnake extends SnakeObject {
 
+    /**
+     * Amount that the snake moves per tick of the timer
+     */
     private int speed_XY;
+    /**
+     * Length of snake
+     */
     private int length;
+    /**
+     * Used when drawing snake
+     */
     private final double num;
+    /**
+     * Game Score
+     */
     public int score = 0;
 
+    /**
+     * Image for Head of snake
+     */
     public final ImageView IMG_SNAKE_HEAD = new ImageView(ImageUtil.images.get("snake-head-right"));
 
+    /**
+     * Stores Snake body parts
+     */
     public List<Point2D> bodyPoints = new LinkedList<>();
 
+    /**
+     * Stores Snake head after being rotated
+     */
     public Image newImgSnakeHead;
-    boolean up, down, left, right = true;
+    /**
+     * When Snake head is facing up
+     */
+    boolean up, /**
+     * When Snake head is facing down
+     */
+ down, /**
+     * When Snake head is facing left
+     */
+ left, /**
+     * When Snake head is facing right
+     */
+ right = true;
 
     /**
-     * This constructor initialises attributes in the class
+     * Initialises attributes in the class
      *
      * @param x refers to where snake is spawned on x-axis
      * @param y refers to where snake is spawned on y-axis
@@ -46,7 +79,7 @@ public class MySnake extends SnakeObject {
     }
 
     /**
-     * This function sets speed_XY attribute
+     * Sets speed_XY attribute
      *
      * @param speed_XY amount of pixels the snake moves per tick of the timer
      */
@@ -55,7 +88,7 @@ public class MySnake extends SnakeObject {
     }
 
     /**
-     * This function returns length of snake
+     * Returns length of snake
      *
      * @return length of snake (body + head)
      */
@@ -64,7 +97,7 @@ public class MySnake extends SnakeObject {
     }
 
     /**
-     * This function changes the length of snake
+     * Changes the length of snake
      *
      * @param length length of snake (body + head)
      */
@@ -74,7 +107,7 @@ public class MySnake extends SnakeObject {
 
 
     /**
-     * This function moves the snake based on the direction its facing
+     * Moves the snake based on the direction its facing
      */
     public void move() {
         if (up) {
@@ -90,7 +123,7 @@ public class MySnake extends SnakeObject {
     }
 
     /**
-     * This function draws the snake on the graphics context.
+     * Draws the snake on the graphics context.
      *
      * @param g The graphics context on which the snake is drawn.
      */
@@ -111,7 +144,7 @@ public class MySnake extends SnakeObject {
     }
 
     /**
-     * This function checks if the snake has run into (eaten) a part of its body
+     * Checks if the snake has run into (eaten) a part of its body
      */
     public void eatBody() {
         for (Point2D point : bodyPoints) {
@@ -125,7 +158,7 @@ public class MySnake extends SnakeObject {
     }
 
     /**
-     * This function draws the body of the snake on the graphics context.
+     * Draws the body of the snake on the graphics context.
      *
      * @param g The graphics context on which the snake's body is drawn.
      */
@@ -139,7 +172,7 @@ public class MySnake extends SnakeObject {
     }
 
     /**
-     * This function checks if the snake is out of bounds and sets its state accordingly.
+     * Checks if the snake is out of bounds and sets its state accordingly.
      */
     private void outofBounds() {
         boolean xOut = (x <= 0 || x >= (870 - width));

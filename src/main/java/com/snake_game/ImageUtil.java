@@ -9,11 +9,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * This class is used to help with image handling. It contains functions to interact with image files.
+ * Used to help with image handling. It contains functions to interact with image files.
  */
 public class ImageUtil {
     /**
-     * This attribute stores images used within the game
+     * Stores images used within the game
      */
     public static Map<String, Image> images = new HashMap<>();
 
@@ -45,7 +45,7 @@ public class ImageUtil {
     }
 
     /**
-     * This function gets a file as an Image object
+     * Gets a file as an Image object
      *
      * @param imagePath project path from resources to image
      * @return the passed in imagePath as an Image object
@@ -63,7 +63,7 @@ public class ImageUtil {
     }
 
     /**
-     * This function rotates a given image
+     * Rotates a given image
      *
      * @param image ImageView being rotated
      * @param angle the degree to rotate the image by

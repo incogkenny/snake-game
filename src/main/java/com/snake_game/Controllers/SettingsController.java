@@ -14,7 +14,7 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 /**
- * This class controls the settings screen. It includes functions to change settings of the game
+ * Controls the settings screen. It includes functions to change settings of the game
  */
 public class SettingsController {
 
@@ -28,7 +28,7 @@ public class SettingsController {
 
 
     /**
-     * This function sets the play attribute
+     * Sets the play attribute
      *
      * @param play Instance of the playable game
      */
@@ -37,7 +37,7 @@ public class SettingsController {
     }
 
     /**
-     * This constructor adds backgrounds to list, so they can be easier accessed within class
+     * Adds backgrounds to list, so they can be easier accessed within class
      *
      * @throws FileNotFoundException thrown when backgrounds aren't found
      */
@@ -51,7 +51,7 @@ public class SettingsController {
     }
 
     /**
-     * This function sets the menuScene attribute
+     * Sets the menuScene attribute
      *
      * @param scene JavaFX scene for Main menu
      */
@@ -60,7 +60,7 @@ public class SettingsController {
     }
 
     /**
-     * This function changes the background for the game. (It goes to the previous image in the images list)
+     * Changes the background for the game. (It goes to the previous image in the images list)
      */
     @FXML
     void changeBackgroundLeft() {
@@ -70,7 +70,7 @@ public class SettingsController {
     }
 
     /**
-     * This function changes the background for the game. (It goes to the next image in the images list)
+     * Changes the background for the game. (It goes to the next image in the images list)
      */
     @FXML
     void changeBackgroundRight() {
@@ -80,7 +80,7 @@ public class SettingsController {
     }
 
     /**
-     * This function changes the game to easy mode (reduced speed)
+     * Changes the game to easy mode (reduced speed)
      */
     @FXML
     void easyMode() {
@@ -88,7 +88,7 @@ public class SettingsController {
     }
 
     /**
-     * This function changes the game to hard mode (increases speed)
+     * Changes the game to hard mode (increases speed)
      */
     @FXML
     void hardMode() {
@@ -96,7 +96,7 @@ public class SettingsController {
     }
 
     /**
-     * This function changes the game to normal mode (original speed)
+     * Changes the game to normal mode (original speed)
      */
     @FXML
     void normalMode() {
@@ -104,7 +104,7 @@ public class SettingsController {
     }
 
     /**
-     * This function switches the scene to the Main menu
+     * Switches the scene to the Main menu
      *
      * @param event Action event for back button
      */

@@ -5,7 +5,7 @@ import javafx.scene.canvas.GraphicsContext;
 import java.util.Random;
 
 /**
- * This class controls how food is generated in the game
+ * Controls how food is generated in the game
  */
 public class Food extends SnakeObject {
     public Food() {
@@ -21,7 +21,7 @@ public class Food extends SnakeObject {
     }
 
     /**
-     * This function checks if food has been eaten.
+     * Checks if food has been eaten.
      * If it has: The state of the food object is set to false, bite sound is played, the snake increases in length and the score is updated.
      * Does nothing if food is still on the screen
      *
@@ -39,7 +39,7 @@ public class Food extends SnakeObject {
     }
 
     /**
-     * This function is used to draw food
+     * Used to draw food
      *
      * @param g Graphics
      */

@@ -8,7 +8,7 @@ import java.net.URL;
 
 
 /**
- * This class deals with playing music and other sounds in the game
+ * Deals with playing music and other sounds in the game
  */
 public class MusicPlayer {
     /**
@@ -18,7 +18,7 @@ public class MusicPlayer {
 
 
     /**
-     * This constructor initialises the MusicPlayer object by loading the file into a MediaPlayer object setting its properties.
+     * Initialises the MusicPlayer object by loading the file into a MediaPlayer object setting its properties.
      * The mediaPlayer is then started.
      *
      * @param filename name of music/sound file
@@ -52,14 +52,14 @@ public class MusicPlayer {
     }
 
     /**
-     * This function plays the file in mediaPlayer
+     * Plays the file in mediaPlayer
      */
     public void play() {
         mediaPlayer.play();
     }
 
     /**
-     * This function pauses the file in mediaPlayer
+     * Pauses the file in mediaPlayer
      */
     public void pause() {
         mediaPlayer.pause();

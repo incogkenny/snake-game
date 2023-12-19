@@ -8,11 +8,11 @@ import java.io.FileReader;
 import java.io.IOException;
 
 /**
- * This class contains functions used when loading data into the leaderboard table
+ * Contains functions used when loading data into the leaderboard table
  */
 public class LeaderboardUtil {
     /**
-     * This function checks if the file at the given filePath exists. If it does exist it calls the readDataFromFile function.
+     * Checks if the file at the given filePath exists. If it does exist it calls the readDataFromFile function.
      * If it doesn't it creates a new file with the path name from filePath.
      *
      * @param data     List of Player records (High scores)
@@ -37,7 +37,7 @@ public class LeaderboardUtil {
     }
 
     /**
-     * This function reads the data at the filePath into data argument (List of Player records)
+     * Reads the data at the filePath into data argument (List of Player records)
      *
      * @param data     List of Player records
      * @param filePath project path to csv file

@@ -20,22 +20,58 @@ import java.nio.file.StandardOpenOption;
 
 
 /**
- * This class manages the game loop and handles user input. It includes the snake, food, canvas, and scenes.
+ * Manages the game loop and handles user input. It includes the snake, food, canvas, and scenes.
  */
 public class Play {
 
+    /**
+     * Allows to draw to canvas
+     */
     private GraphicsContext gc;
+    /**
+     * Stores MySnake instance
+     */
     public MySnake mySnake = new MySnake(100, 100);// x , y
+    /**
+     * Stores Food instance
+     */
     public Food food = new Food();
+    /**
+     * Stores Game Background
+     */
     public Image background = ImageUtil.images.get("UI-background");
+    /**
+     * Plays Background Music
+     */
     public MusicPlayer backgroundMusic;
+    /**
+     * Allows you to write to screen
+     */
     public Canvas canvas;
+    /**
+     * Runs game loop
+     */
     public AnimationTimer timer;
+    /**
+     * Stores Stage for game
+     */
     public Stage stage;
+    /**
+     * Stores Scene for playable game
+     */
     public Scene gameScene;
+    /**
+     * Stores Scene for Pause menu
+     */
     public Scene pauseScene;
+    /**
+     * Stores Scene for End screen
+     */
     public Scene endscene;
 
+    /**
+     * Stores username entered by player
+     */
     public String playerName;
 
     /**
@@ -53,7 +89,7 @@ public class Play {
     }
 
     /**
-     * This function sets the primary stage for the game
+     * Sets the primary stage for the game
      * @param stage The primary stage of the application
      */
     public void setStage(Stage stage) {
@@ -61,19 +97,19 @@ public class Play {
     }
 
     /**
-     * This function sets the pause scene for the game
+     * Sets the pause scene for the game
      * @param pauseScene The scene displayed when the game is paused
      */
     public void setPauseScene(Scene pauseScene) {
         this.pauseScene = pauseScene;
     }
     /**
-     * This function sets the end scene for the game
+     * Sets the end scene for the game
      * @param scene The scene displayed when the game ends
      */
     public void setEndScene(Scene scene){endscene = scene;}
     /**
-     * This function gets the game scene
+     * Returns the game scene
      * @return The game scene
      */
     public Scene getGameScene() {
@@ -81,7 +117,7 @@ public class Play {
     }
 
     /**
-     * This function handles key events for controlling the snake and pausing the game.
+     * Handles key events for controlling the snake and pausing the game.
      * @param e The KeyEvent object representing the key event.
      */
     public void keyPressed(KeyEvent e) {
@@ -140,7 +176,7 @@ public class Play {
     }
 
     /**
-     * This function handles the game loop that constantly updates the state of the game and renders it on the canvas.
+     * Handles the game loop that constantly updates the state of the game and renders it on the canvas.
      */
     public void game() {
         timer = new AnimationTimer() {
@@ -188,7 +224,7 @@ public class Play {
     }
 
     /**
-     * This function resets the game by reinitialising the snake, food, canvas, and game scene.
+     * Resets the game by reinitialising the snake, food, canvas, and game scene.
      */
     public void reset() {
         mySnake.bodyPoints.clear();
@@ -202,7 +238,7 @@ public class Play {
     }
 
     /**
-     * This function draws the score on the graphics context.
+     * Draws the score on the graphics context.
      * @param g The graphics context on which the score is drawn.
      */
     public void drawScore(GraphicsContext g) {

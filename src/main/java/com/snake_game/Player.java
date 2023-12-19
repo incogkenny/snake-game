@@ -4,7 +4,7 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
 /**
- * This class represents a player's score record.
+ * Represents a player's score record.
  * It uses SimpleStringProperty for the player's name and SimpleIntegerProperty for the score.
  */
 public final class Player {
